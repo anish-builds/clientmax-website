@@ -29,7 +29,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-[#F5F2EA]/95 backdrop-blur-md border-b border-[rgba(32,34,31,0.08)] py-4 shadow-sm'
             : 'bg-transparent border-b border-transparent py-6'
@@ -134,7 +134,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-30 bg-[#F5F2EA] pt-28 px-8 pb-12 flex flex-col justify-between md:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#F5F2EA] pt-28 px-8 pb-12 flex flex-col justify-between md:hidden overflow-y-auto"
           >
             <div className="space-y-6 relative z-10">
               <span className="text-[10px] font-mono tracking-[0.25em] text-[#4F5A48] uppercase block mb-4">
