@@ -51,21 +51,6 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-        {/* Editorial Masthead Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-between gap-4 pb-8 mb-10 border-b border-[rgba(32,34,31,0.10)] text-[10px] font-mono tracking-[0.22em] text-[#4F5A48] uppercase"
-        >
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 bg-[#B9D65A]" />
-            <span>CLIENTSMAX MONOGRAPH</span>
-          </div>
-          <span className="hidden sm:inline">CREDIT AS AN ARCHITECTURAL ASSET</span>
-          <span className="text-[#20221F] font-semibold">EDITION 2026 // RAZILA</span>
-        </motion.div>
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
