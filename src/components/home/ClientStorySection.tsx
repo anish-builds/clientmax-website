@@ -27,7 +27,7 @@ export function ClientStorySection() {
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 bg-[#20221F]" />
               <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                DOCUMENTED PROGRESSION // CASE NARRATIVES
+                DOCUMENTED PROGRESSION // CLIENT EXPERIENCES
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal font-editorial-serif text-[#20221F] tracking-tight">
@@ -35,25 +35,41 @@ export function ClientStorySection() {
             </h2>
           </div>
 
-          {/* Navigation Arrows */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={prevStory}
-              aria-label="Previous client story"
-              className="p-3 border border-[rgba(32,34,31,0.20)] text-[#4F5A48] hover:text-[#20221F] hover:bg-[#EAE5DA] transition-colors rounded-none"
-            >
-              <ArrowLeft size={16} />
-            </button>
-            <span className="text-xs font-mono text-[#4F5A48] px-2 font-semibold">
-              0{currentIndex + 1} / 0{CLIENT_STORIES.length}
-            </span>
-            <button
-              onClick={nextStory}
-              aria-label="Next client story"
-              className="p-3 border border-[rgba(32,34,31,0.20)] text-[#4F5A48] hover:text-[#20221F] hover:bg-[#EAE5DA] transition-colors rounded-none"
-            >
-              <ArrowRight size={16} />
-            </button>
+          {/* Navigation Controls */}
+          <div className="flex items-center gap-4">
+            <div className="flex gap-2">
+              {CLIENT_STORIES.map((story, idx) => (
+                <button
+                  key={story.id}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`px-3 py-1.5 font-mono text-xs transition-all border ${
+                    currentIndex === idx
+                      ? 'border-[#20221F] bg-[#20221F] text-[#F5F2EA] font-semibold'
+                      : 'border-[rgba(32,34,31,0.20)] text-[#4F5A48] hover:border-[#20221F] bg-transparent'
+                  }`}
+                  aria-label={`View story ${idx + 1}`}
+                >
+                  0{idx + 1}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 border-l border-[rgba(32,34,31,0.15)] pl-4">
+              <button
+                onClick={prevStory}
+                aria-label="Previous client story"
+                className="p-2 border border-[rgba(32,34,31,0.20)] text-[#4F5A48] hover:text-[#20221F] hover:bg-[#EAE5DA] transition-colors rounded-none"
+              >
+                <ArrowLeft size={14} />
+              </button>
+              <button
+                onClick={nextStory}
+                aria-label="Next client story"
+                className="p-2 border border-[rgba(32,34,31,0.20)] text-[#4F5A48] hover:text-[#20221F] hover:bg-[#EAE5DA] transition-colors rounded-none"
+              >
+                <ArrowRight size={14} />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -129,6 +145,16 @@ export function ClientStorySection() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
+
+        {/* Footnote */}
+        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] font-mono text-[#4F5A48] border-t border-[rgba(32,34,31,0.10)] pt-6">
+          <p className="max-w-2xl font-light">
+            * Documented client narratives illustrate strategic credit planning scenarios. Individual results vary based on starting credit profile, bureau reporting timing, and lender underwriting criteria.
+          </p>
+          <span className="text-[#20221F] font-semibold shrink-0 uppercase tracking-wider">
+            AUTHENTIC ADVISORY
+          </span>
         </div>
       </div>
     </section>

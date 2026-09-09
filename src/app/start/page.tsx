@@ -17,8 +17,8 @@ export default function StartJourneyPage() {
   const milestones = [
     {
       id: 'audit',
-      label: 'Audit & Understand My Report',
-      subtext: 'I need to see what all 3 bureaus report and identify inaccuracies.',
+      label: 'Review & Understand My Credit Profile',
+      subtext: 'I want a 1-on-1 consultation with Razila to review my 3-bureau report and map priorities.',
       defaultResource: 'creditReport',
     },
     {
@@ -30,7 +30,7 @@ export default function StartJourneyPage() {
     {
       id: 'vehicle',
       label: 'Prepare for Vehicle Financing',
-      subtext: 'I plan to finance or lease a car and want tier-1 interest rates.',
+      subtext: 'I plan to finance or lease a car and want prime interest rates.',
       defaultResource: 'vehicle',
     },
     {
@@ -42,7 +42,7 @@ export default function StartJourneyPage() {
     {
       id: 'advisory',
       label: 'Private 1-on-1 Consultation with Razila',
-      subtext: 'I need a bespoke roadmap tailored to my complex personal file.',
+      subtext: 'I need a personalized roadmap tailored to my specific financial goals.',
       defaultResource: 'consultation',
     },
   ];
@@ -51,22 +51,22 @@ export default function StartJourneyPage() {
     {
       id: 'below-620',
       label: 'Under 620 or Limited History',
-      subtext: 'Priority is identifying errors and establishing foundational lines.',
+      subtext: 'Priority is identifying errors and establishing foundational trade lines.',
     },
     {
       id: '620-690',
       label: '620 to 690 (Moderate Range)',
-      subtext: 'Priority is optimizing statement cut dates and reducing utilization.',
+      subtext: 'Priority is optimizing statement closing dates and reducing reported utilization.',
     },
     {
       id: '690-plus',
-      label: '700+ (Leverage Range)',
-      subtext: 'Priority is accessing prime tier-1 lending and premium limits.',
+      label: '700+ (Prime Range)',
+      subtext: 'Priority is accessing prime lending rates and higher credit limits.',
     },
     {
       id: 'unknown',
       label: 'I Have Not Checked Recently',
-      subtext: 'Priority is pulling an unadulterated 3-bureau report immediately.',
+      subtext: 'Priority is reviewing a complete 3-bureau report with a strategist.',
     },
   ];
 

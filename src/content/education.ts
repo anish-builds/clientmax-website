@@ -7,45 +7,48 @@ export interface CreditFactor {
   misconception: string;
 }
 
+export const FICO_DISCLOSURE =
+  'FICO scoring models consider several major factors, including payment history, amounts owed, length of credit history, credit mix, and new credit. The relative impact can vary by scoring model and individual profile.';
+
 export const CREDIT_FACTORS: CreditFactor[] = [
   {
-    percentage: '35%',
+    percentage: '~35%',
     name: 'Payment History',
-    weightLabel: 'Foundational Weight',
-    editorialSummary: 'The algorithm prioritizes one simple metric above all others: do you honor obligations on time? A single 30-day late payment can diminish a score dramatically because it indicates immediate liquidity distress.',
-    strategicTakeaway: 'Automate minimum payments on every single account without exception. Even if you plan to pay in full later, auto-pay guarantees the 35% tier remains pristine.',
-    misconception: 'Myth: "If I pay before the grace period ends, it will not hurt me." Fact: Once 30 days past the due date pass, lenders are legally entitled to report delinquency to the bureaus.',
+    weightLabel: 'Foundational Consideration',
+    editorialSummary: 'Lenders evaluate whether you honor payment obligations on time. In most FICO scoring models, payment history carries the largest relative weight. A single 30-day late payment can significantly affect your profile because it signals repayment difficulty.',
+    strategicTakeaway: 'Set up automatic minimum payments on every account. Even when paying balances in full later, auto-pay protects your on-time payment track record.',
+    misconception: 'Myth: "If I pay before the grace period ends, it will not hurt me." Fact: Once 30 days past the due date pass, lenders can report a delinquency to the credit bureaus.',
   },
   {
-    percentage: '30%',
+    percentage: '~30%',
     name: 'Amounts Owed / Utilization',
-    weightLabel: 'High Volatility Weight',
-    editorialSummary: 'Revolving credit utilization measures what percentage of your credit limits you are actively using. Unlike payment history, utilization has no memory in older scoring models—lowering it can reflect positive changes within 30 to 45 days.',
-    strategicTakeaway: 'Do not wait for the payment due date. Pay your balance 2–3 business days BEFORE the statement closing date, which is when the balance is actually captured and sent to the bureaus.',
-    misconception: 'Myth: "You must carry a 1% to 3% balance to show activity." Fact: You never need to pay a cent in interest. The statement balance reports whether you pay interest or not.',
+    weightLabel: 'Revolving Balance Ratio',
+    editorialSummary: 'Revolving credit utilization measures what portion of your credit limits you are actively using. Unlike payment history, utilization reflects your current balances—lowering reported balances can show positive changes relatively quickly once lenders report new cycles.',
+    strategicTakeaway: 'Be mindful of your statement closing dates. Paying balances a few business days before your statement closing date ensures a lower balance is reported to the bureaus.',
+    misconception: 'Myth: "You must carry a 1% to 3% balance month-to-month to show activity." Fact: You do not need to pay interest to build good credit. Paying in full after statement close builds positive history without interest charges.',
   },
   {
-    percentage: '15%',
+    percentage: '~15%',
     name: 'Length of Credit History',
-    weightLabel: 'Compound Endurance',
-    editorialSummary: 'Lenders value longevity. This factor calculates the average age of all your accounts (AAoA), the age of your oldest trade line, and the recency of your latest opened account.',
-    strategicTakeaway: 'Keep your oldest fee-free credit cards open and active with a trivial recurring charge. Closing your oldest card will eventually cause it to fall off your report, eroding your age foundation.',
-    misconception: 'Myth: "Closing unused credit cards boosts your score." Fact: Closing cards reduces your total available credit limit (spiking utilization) and eventually truncates account longevity.',
+    weightLabel: 'Account Longevity',
+    editorialSummary: 'Scoring models generally favor an established credit history. This factor considers the age of your oldest account, the average age of all accounts, and how recently specific accounts were used.',
+    strategicTakeaway: 'Keep your oldest fee-free credit cards open and active with an occasional small charge. Keeping them open supports your average account age over time.',
+    misconception: 'Myth: "Closing unused credit cards immediately boosts your score." Fact: Closing an older card can reduce your total available credit limit (which may increase utilization) and eventually shortens account history.',
   },
   {
-    percentage: '10%',
+    percentage: '~10%',
     name: 'Credit Mix & Depth',
-    weightLabel: 'Portfolio Diversity',
-    editorialSummary: 'Scoring models reward consumers who can manage distinct types of debt responsibly: revolving credit (credit cards, lines of credit) alongside installment debt (auto loans, mortgages, student loans).',
-    strategicTakeaway: 'Never take out a loan solely for "credit mix." However, if your report is 100% revolving cards, adding a zero-risk micro-installment builder can balance your portfolio naturally.',
-    misconception: 'Myth: "You need 10 different loans to have great credit." Fact: A healthy mix requires only a few well-managed, seasoned trade lines across revolving and installment categories.',
+    weightLabel: 'Account Types',
+    editorialSummary: 'Scoring models look favorably on consumers who can responsibly manage different types of credit: revolving credit (credit cards) alongside installment credit (auto loans, mortgages, student loans).',
+    strategicTakeaway: 'Never take out a loan simply for "credit mix." Focus on the accounts you genuinely need, and manage revolving cards and installment loans responsibly.',
+    misconception: 'Myth: "You need multiple loans to have a strong score." Fact: A healthy profile requires only a few well-managed, seasoned accounts across your available credit types.',
   },
   {
-    percentage: '10%',
+    percentage: '~10%',
     name: 'New Inquiries & Recency',
-    weightLabel: 'Risk Velocity',
-    editorialSummary: 'Each hard inquiry placed on your report signals that you are seeking new liabilities. While one inquiry typically costs 3 to 5 points, clustering 5 inquiries in 60 days signals heightened risk to underwriting algorithms.',
-    strategicTakeaway: 'Always prioritize pre-qualification soft pulls. When shopping for vehicle loans or mortgages, concentrate inquiries within a 14-day window so FICO clusters them as a single shopping event.',
-    misconception: 'Myth: "Checking your own credit score hurts your rating." Fact: Personal credit checks via monitoring portals are soft inquiries and have zero impact on your score.',
+    weightLabel: 'New Credit & Recency',
+    editorialSummary: 'Applying for several new credit lines in a short timeframe can indicate heightened risk to lenders. While a single hard inquiry typically has a minor effect, clustering multiple inquiries outside shopping windows can impact your score.',
+    strategicTakeaway: 'Prioritize soft-inquiry pre-qualifications when exploring new cards. When shopping for vehicle loans or mortgages, concentrate applications within a 14 to 45 day window so scoring models treat them as a single rate-shopping event.',
+    misconception: 'Myth: "Checking your own credit score hurts your rating." Fact: Checking your own credit report through monitoring tools is a soft inquiry and never affects your credit score.',
   },
 ];

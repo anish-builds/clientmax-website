@@ -32,32 +32,32 @@ export function PathwaySection() {
       number: '01',
       shortTitle: 'UNDERSTAND',
       selectorSubtext: 'The 3-Bureau Report Audit',
-      headline: 'KNOW EXACTLY WHAT UNDERWRITERS SEE.',
-      tagline: 'Audit historical remarks and debt-to-limit ratios before making a single application.',
-      description: 'You cannot sequence a financial move when working from incomplete or outdated credit monitoring apps. An unadulterated 3-bureau audit reveals hidden derogatory flags, naming discrepancies, and true statement balances.',
-      underwritingInsight: 'Most consumer apps display VantageScore 3.0, which no tier-1 auto lender or mortgage underwriter uses. Real decisions run on FICO 8, FICO Auto, and tri-merge algorithms.',
+      headline: 'KNOW EXACTLY WHAT LENDERS SEE.',
+      tagline: 'Review historical remarks and balance-to-limit ratios before making an application.',
+      description: 'You cannot plan your next financial move when working from incomplete or outdated credit monitoring apps. A comprehensive 3-bureau review reveals hidden derogatory flags, naming discrepancies, and true statement balances.',
+      underwritingInsight: 'Most consumer monitoring apps display VantageScore, while mortgage lenders and auto underwriters rely primarily on FICO scoring models. Knowing what lenders see protects your time and money.',
       checkpoints: [
-        'Pull complete tri-merge data from Experian, TransUnion, and Equifax',
-        'Identify balance-to-limit ratio bottlenecks driving down utilization',
-        'Verify accuracy of all open, closed, and secondary trade line remarks',
+        'Review complete 3-bureau data from Experian, TransUnion, and Equifax',
+        'Identify balance-to-limit ratio bottlenecks driving down reported scores',
+        'Verify the accuracy of all open, closed, and secondary account remarks',
       ],
-      destinationLabel: 'Identity & Credit Audit Portal',
+      destinationLabel: 'Calendly Private Scheduler',
       resourceKey: 'creditReport',
-      actionText: 'GET YOUR CREDIT REPORT →',
+      actionText: 'BOOK YOUR CREDIT CONSULTATION →',
     },
     {
       id: 'build',
       number: '02',
       shortTitle: 'BUILD',
       selectorSubtext: 'Positive Compounding Trade Lines',
-      headline: 'CONSTRUCT COMPOUNDING DEPTH WITHOUT DEBT TRAPS.',
+      headline: 'BUILD CREDIT DEPTH WITHOUT ACCUMULATING DEBT.',
       tagline: 'Establish accredited, on-time payment records reported monthly to the bureaus.',
-      description: 'A thin credit profile is just as punitive as a damaged one. Building durable credit strength requires active revolving and installment trade lines that report consistently on-time with zero interest penalties.',
-      underwritingInsight: 'Payment history constitutes 35% of your total score. Adding an accredited building line like Kikoff creates verified monthly on-time entries without incurring revolving interest.',
+      description: 'A thin credit profile can be just as limiting as a damaged one. Building durable credit strength requires active revolving and installment trade lines that report consistently on time with zero interest penalties.',
+      underwritingInsight: 'Payment history is considered the largest single scoring factor in FICO models. Adding a dedicated credit-building line helps establish verified monthly on-time entries without incurring revolving interest.',
       checkpoints: [
         'Activate non-predatory reporting lines with zero interest overhead',
         'Ensure recurring monthly logs to both Equifax and Experian',
-        'Build multi-year average account age (AAoA) naturally',
+        'Build average account age (AAoA) steadily and naturally',
       ],
       destinationLabel: 'Kikoff Credit Builder Portal',
       resourceKey: 'creditBuilding',
@@ -68,14 +68,14 @@ export function PathwaySection() {
       number: '03',
       shortTitle: 'DISCOVER',
       selectorSubtext: 'Prime Revolving Capacity',
-      headline: 'PRE-QUALIFY FOR PRIME LINES WITH ZERO SCORE RISK.',
-      tagline: 'Expand your credit limits and naturally compress your utilization ratio.',
-      description: 'Applying blindly for credit cards triggers hard inquiries that depress your score. Strategic borrowing utilizes soft-pull pre-qualification tools to examine real approval terms before committing to an inquiry.',
-      underwritingInsight: 'Expanding your total available revolving limit from $5,000 to $20,000 instantly cuts your utilization percentage in four, without requiring you to pay down a single extra balance.',
+      headline: 'PRE-QUALIFY FOR PRIME CARDS WITH ZERO SCORE RISK.',
+      tagline: 'Expand your credit limits and naturally lower your utilization ratio.',
+      description: 'Applying blindly for credit cards triggers hard inquiries that can temporarily lower your score. Strategic borrowing utilizes soft-inquiry pre-qualification tools to examine real approval terms before submitting a formal application.',
+      underwritingInsight: 'Expanding your total available revolving limit from $5,000 to $20,000 cuts your utilization percentage significantly without requiring you to pay down a single additional balance.',
       checkpoints: [
-        'Pre-qualify via soft inquiry before submitting formal application',
-        'Target tier-1 lenders that grant automated line increases at 6 months',
-        'Maintain zero balances past the statement closing date',
+        'Pre-qualify via soft inquiry before submitting a formal application',
+        'Target reputable lenders that offer periodic credit line reviews',
+        'Keep reported statement balances low by paying ahead of closing dates',
       ],
       destinationLabel: 'Capital One Pre-Approval Portal',
       resourceKey: 'creditCards',
@@ -86,14 +86,14 @@ export function PathwaySection() {
       number: '04',
       shortTitle: 'MOVE',
       selectorSubtext: 'Vehicle Financing & Leasing',
-      headline: 'COMMAND TIER-1 RATES. STOP DEALERSHIP MARKUPS.',
-      tagline: 'Navigate automotive underwriting and prevent inquiry shotgunning.',
-      description: 'Automotive dealerships routinely submit client credit files to 10+ subprime lenders simultaneously, severely damaging inquiry velocity. Knowing your standing beforehand enables you to command manufacturer-direct financing.',
-      underwritingInsight: 'Auto lending utilizes specialized FICO Auto scoring algorithms weighted heavily toward prior auto trade line history. Proper positioning saves thousands in lifetime interest payments.',
+      headline: 'COMMAND PRIME AUTO RATES. AVOID DEALERSHIP MARKUPS.',
+      tagline: 'Navigate automotive lending and protect your inquiry count.',
+      description: 'Dealerships routinely submit client files to multiple subprime lenders simultaneously, creating unnecessary hard inquiry clusters. Knowing your standing beforehand enables you to negotiate direct financing with confidence.',
+      underwritingInsight: 'Auto lending frequently utilizes specialized auto-specific FICO scoring models. Preparing your profile before visiting the dealer can save thousands in financing interest.',
       checkpoints: [
-        'Review auto-specific score factors and loan-to-value ratios',
-        'Lock pre-approved credit union or captive lender financing',
-        'Neutralize aggressive dealer finance office markups with confidence',
+        'Review auto-specific score factors and loan-to-value expectations',
+        'Seek pre-approved credit union or captive lender financing first',
+        'Negotiate financing terms from a position of verified credit strength',
       ],
       destinationLabel: 'Clarel Vehicle Finance Resource',
       resourceKey: 'vehicle',
@@ -107,15 +107,15 @@ export function PathwaySection() {
       headline: 'PRIVATE 1-ON-1 STRATEGY DIRECTLY WITH RAZILA.',
       tagline: 'A confidential deep-dive into your report, immediate priorities, and customized execution.',
       description: 'Cut through automated guesswork and generic advice. Schedule a private strategy session with Razila to walk through your credit profile, sequence your moves, and build a concrete roadmap.',
-      underwritingInsight: 'Every consultation is held directly with Razila—not an offshore rep or automated system. We analyze your exact statement cut dates and prioritize actions by mathematical return.',
+      underwritingInsight: 'Every consultation is held directly with Razila—not an offshore call center or automated chatbot. We analyze your credit goals and prioritize actions based on what matters most for your timeline.',
       checkpoints: [
         'Comprehensive line-by-line 3-bureau report audit',
-        'Personalized statement calendar for optimal utilization reporting',
-        'Immediate execution checklist for upcoming auto or home financing',
+        'Personalized statement calendar for optimal balance reporting',
+        'Immediate execution checklist for upcoming auto, home, or card goals',
       ],
       destinationLabel: 'Calendly Private Scheduler',
       resourceKey: 'consultation',
-      actionText: 'BOOK A CONSULTATION →',
+      actionText: 'BOOK A ONE-ON-ONE CONSULTATION →',
     },
   ];
 
@@ -137,7 +137,7 @@ export function PathwaySection() {
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 bg-[#20221F]" />
               <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                SIGNATURE INTERACTIVE STAGE // DESTINATION SELECTOR
+                STRATEGIC PATHWAYS // OBJECTIVE SELECTOR
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal font-editorial-serif text-[#20221F] tracking-tight leading-[1.02]">
@@ -149,7 +149,7 @@ export function PathwaySection() {
 
           <div className="lg:col-span-4 text-left lg:text-right space-y-2">
             <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
-              Select an objective below to inspect the mathematical mechanics, underwriting insight, and verified institutional pathway.
+              Select an objective below to explore the credit strategy, lender expectations, and verified next steps.
             </p>
             <Link
               href="/start"
@@ -243,7 +243,7 @@ export function PathwaySection() {
                   <div className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 bg-[#B9D65A]" />
                     <span className="text-[10px] font-mono tracking-[0.25em] text-[#4F5A48] uppercase">
-                      STRATEGIC VECTOR // {currentPathway.shortTitle}
+                      STRATEGIC PATHWAY // {currentPathway.shortTitle}
                     </span>
                   </div>
                   <span className="text-[9px] font-mono text-[#4F5A48] border border-[rgba(32,34,31,0.18)] bg-[#F5F2EA] px-2 py-0.5 uppercase">
@@ -269,7 +269,7 @@ export function PathwaySection() {
                 {/* Underwriting Insight Box */}
                 <div className="p-5 bg-[#F5F2EA] border-l-2 border-[#20221F] space-y-1.5 shadow-sm">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-[#20221F] font-semibold block">
-                    ALGORITHMIC UNDERWRITING INSIGHT:
+                    CREDIT & LENDER INSIGHT:
                   </span>
                   <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
                     {currentPathway.underwritingInsight}
@@ -279,7 +279,7 @@ export function PathwaySection() {
                 {/* Tactical Checkpoints */}
                 <div className="space-y-2.5">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-[#4F5A48] font-semibold block">
-                    EXECUTION PROTOCOLS:
+                    KEY RECOMMENDED ACTIONS:
                   </span>
                   <div className="grid grid-cols-1 gap-2">
                     {currentPathway.checkpoints.map((cp, idx) => (

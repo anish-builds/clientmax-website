@@ -88,7 +88,7 @@ export default function ContactPage() {
                     onClick={() => initiateRedirect(consultationResource)}
                     className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-[#20221F] text-[#F5F2EA] font-mono text-xs font-semibold uppercase tracking-wider hover:bg-[#383d35] transition-colors rounded-none border border-[#20221F]"
                   >
-                    <span>BOOK A CONSULTATION →</span>
+                    <span>BOOK YOUR CREDIT CONSULTATION →</span>
                     <ArrowUpRight size={14} className="text-[#B9D65A]" />
                   </button>
                 </div>

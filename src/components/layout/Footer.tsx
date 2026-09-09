@@ -25,10 +25,10 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xl sm:text-2xl font-editorial-serif text-[#20221F] leading-snug">
-              Credit is not an emergency fix. It is the architectural foundation of modern financial sovereignty.
+              Credit is not an emergency fix. It is the foundation for long-term financial strength.
             </p>
             <p className="text-xs text-[#4F5A48] font-light leading-relaxed max-w-md pt-2">
-              CLIENTSMAX delivers institutional-grade credit intelligence and private advisory. Founded by Razila.
+              CLIENTSMAX provides credit education and strategic 1-on-1 advisory. Founded by Razila.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function Footer() {
                   href="/start"
                   className="text-xs font-mono tracking-wider text-[#20221F] font-medium hover:underline"
                 >
-                  Find Your Entry Point →
+                  Find Your Starting Point →
                 </Link>
               </li>
             </ul>
@@ -85,7 +85,7 @@ export function Footer() {
                 onClick={() => initiateRedirect(consultationResource)}
                 className="text-xs font-mono tracking-widest text-[#F5F2EA] bg-[#20221F] px-5 py-3 hover:bg-[#383d35] transition-colors uppercase font-semibold rounded-none border border-[#20221F]"
               >
-                BOOK A CONSULTATION →
+                BOOK A ONE-ON-ONE CONSULTATION →
               </button>
             </div>
           </div>

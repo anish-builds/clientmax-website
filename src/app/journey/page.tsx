@@ -37,7 +37,7 @@ export default function JourneyPage() {
             </h1>
 
             <p className="text-base sm:text-xl text-[#4F5A48] font-light max-w-2xl leading-relaxed pt-2">
-              Credit improvement is not random luck or aggressive arguing. It is a four-phase mathematical sequence. Follow the blueprint step-by-step.
+              Credit improvement is not random luck or aggressive dispute letters. It is a structured four-phase process. Follow the roadmap step by step.
             </p>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function JourneyPage() {
                   {/* Mindset Callout */}
                   <div className="p-6 bg-[#EAE5DA]/50 border-l-2 border-[#20221F] space-y-2 shadow-sm">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#20221F] font-semibold block">
-                      CORE PARADIGM SHIFT
+                      KEY MINDSET SHIFT
                     </span>
                     <p className="text-sm text-[#20221F] italic font-editorial-serif">
                       &ldquo;{stage.mindsetShift}&rdquo;
@@ -128,7 +128,7 @@ export default function JourneyPage() {
                     <AlertOctagon size={16} className="text-[#8a423d] shrink-0 mt-0.5" />
                     <span>
                       <strong className="text-[#20221F] font-medium font-mono uppercase tracking-wider text-[11px] block">
-                        Amateur Mistake to Avoid:
+                        Common Mistake to Avoid:
                       </strong>{' '}
                       {stage.pitfallToAvoid}
                     </span>

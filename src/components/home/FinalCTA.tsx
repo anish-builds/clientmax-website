@@ -38,34 +38,34 @@ export function FinalCTA() {
           </h2>
 
           <p className="text-base sm:text-xl text-[#4F5A48] font-light max-w-2xl leading-relaxed">
-            Stop guessing your standing. Step into intentional credit architecture with CLIENTSMAX.
+            Take control of your credit with clear, intentional strategy. Book a 1-on-1 consultation directly with Razila or explore our guided diagnostic.
           </p>
 
           {/* Dual Action Buttons with Directional Interactions */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-4">
+            <button
+              onClick={() => initiateRedirect(consultationResource)}
+              data-cursor="view"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold hover:bg-[#383d35] transition-all border border-[#20221F] rounded-none shadow-sm"
+            >
+              <span>BOOK A ONE-ON-ONE CONSULTATION</span>
+              <ArrowUpRight
+                size={14}
+                className="text-[#B9D65A] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </button>
+
             <Link
               href="/start"
               data-cursor="go"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold hover:bg-[#383d35] transition-all border border-[#20221F] rounded-none shadow-sm"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[rgba(32,34,31,0.25)] text-[#20221F] font-mono text-xs tracking-widest uppercase hover:border-[#20221F] hover:bg-[#F5F2EA] transition-all bg-transparent rounded-none"
             >
               <span>START YOUR JOURNEY</span>
               <ArrowRight
                 size={14}
-                className="text-[#B9D65A] transition-transform group-hover:translate-x-1"
+                className="text-[#4F5A48] transition-transform group-hover:translate-x-1"
               />
             </Link>
-
-            <button
-              onClick={() => initiateRedirect(consultationResource)}
-              data-cursor="view"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[rgba(32,34,31,0.25)] text-[#20221F] font-mono text-xs tracking-widest uppercase hover:border-[#20221F] hover:bg-[#F5F2EA] transition-all bg-transparent rounded-none"
-            >
-              <span>BOOK A CONSULTATION</span>
-              <ArrowUpRight
-                size={14}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#4F5A48]"
-              />
-            </button>
           </div>
         </div>
       </div>

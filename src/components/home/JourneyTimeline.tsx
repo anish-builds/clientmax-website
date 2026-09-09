@@ -165,7 +165,7 @@ export function JourneyTimeline() {
                   <div className="flex items-center gap-2 text-[#20221F]">
                     <AlertTriangle size={15} className="text-[#4F5A48]" />
                     <span className="text-xs font-mono tracking-wider uppercase font-semibold">
-                      COMMON AMATEUR ERROR
+                      COMMON PITFALL TO AVOID
                     </span>
                   </div>
                   <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
@@ -177,7 +177,7 @@ export function JourneyTimeline() {
                 <div className="border border-[rgba(32,34,31,0.15)] p-8 bg-[#F5F2EA] space-y-4 shadow-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono text-[#4F5A48] uppercase tracking-widest">
-                      RECOMMENDED GATEWAY
+                      RECOMMENDED STEP / TOOL
                     </span>
                     <ShieldCheck size={16} className="text-[#20221F]" />
                   </div>
@@ -187,7 +187,7 @@ export function JourneyTimeline() {
                   </h4>
 
                   <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
-                    The verified institutional resource for Phase {currentStage.step} progression.
+                    Recommended resource or strategy session for Phase {currentStage.step}.
                   </p>
 
                   <button

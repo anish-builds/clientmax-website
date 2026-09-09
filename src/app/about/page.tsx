@@ -13,26 +13,26 @@ export default function AboutPage() {
   const principles = [
     {
       number: '01',
-      title: 'Algorithmic Determinism',
-      description: 'Credit scores are not subjective evaluations; they are mechanical risk calculations. We teach clients the exact mathematical weights (35% payment history, 30% utilization) so decisions are deliberate rather than emotional.',
+      title: 'Structured Credit Rules',
+      description: 'Credit scores are not personal judgments; they are structured evaluations of risk. We teach clients how major factors like payment history and utilization are weighed so decisions are deliberate rather than emotional.',
       icon: Scale,
     },
     {
       number: '02',
-      title: 'Zero Synthetic Promises',
-      description: 'We refuse to participate in the deceptive marketing tactics that plague the credit space. We will never promise specific score point increases, overnight miracles, or the illegal erasure of accurate negative reporting.',
+      title: 'Zero Empty Promises',
+      description: 'We refuse to participate in deceptive marketing tactics. We will never promise specific score point increases, overnight miracles, or the illegal erasure of accurate negative reporting.',
       icon: ShieldCheck,
     },
     {
       number: '03',
       title: 'Strategic Sequencing',
-      description: 'Order of operations is everything. Paying a balance 24 hours before the statement closing date yields a fundamentally different score outcome than paying on the due date. Timing is the invisible leverage.',
+      description: 'Order of operations matters. Paying a balance a few days before your statement closing date yields a fundamentally different reported outcome than paying on the due date. Timing is quiet leverage.',
       icon: Compass,
     },
     {
       number: '04',
-      title: 'Generational Sovereignty',
-      description: 'Our ultimate success metric is that you never need to hire a credit consultant again. We equip you with permanent literacy to guide your own family and business through tier-1 institutional borrowing.',
+      title: 'Lasting Financial Independence',
+      description: 'Our ultimate success metric is that you develop permanent credit literacy. We equip you to guide your own decisions and family finances through prime lending opportunities with total confidence.',
       icon: Award,
     },
   ];
@@ -41,22 +41,22 @@ export default function AboutPage() {
     {
       dimension: 'Core Objective',
       traditional: 'Keep you on a recurring monthly retainer filing generic disputes.',
-      clientsmax: 'Educate you to audit your bureaus, control statement cycles, and exit advisory permanently within 90 days.',
+      clientsmax: 'Educate you to understand your bureaus, control statement cycles, and manage credit independently.',
     },
     {
       dimension: 'Reporting Focus',
       traditional: 'Focussed solely on disputing negative items regardless of accuracy.',
-      clientsmax: 'Comprehensive 360° architecture: optimizing utilization, building depth, and cleaning inaccuracies.',
+      clientsmax: 'Comprehensive view: optimizing utilization, building depth, and correcting reporting inaccuracies.',
     },
     {
       dimension: 'Transparency',
       traditional: 'Vague promises of "750+ overnight" and generic template letters.',
-      clientsmax: 'Complete honest breakdown of bureau algorithms, underwriting models, and realistic timelines.',
+      clientsmax: 'Complete, honest breakdown of scoring models, lender expectations, and realistic timelines.',
     },
     {
       dimension: 'Client Relationship',
       traditional: 'Passive dependency on a third-party portal.',
-      clientsmax: 'Active education, direct strategy with Razila, and lasting financial sovereignty.',
+      clientsmax: 'Active education, direct strategy with Razila, and lasting financial confidence.',
     },
   ];
 
@@ -116,7 +116,10 @@ export default function AboutPage() {
                     Razila
                   </h3>
                   <p className="text-xs font-mono text-[#4F5A48] uppercase tracking-wider font-semibold">
-                    FOUNDER & PRINCIPAL ADVISOR
+                    CREDIT STRATEGIST & FOUNDER
+                  </p>
+                  <p className="text-xs text-[#20221F] font-medium pt-1">
+                    Credit strategist helping clients understand, build, and use credit with intention.
                   </p>
                 </div>
 
@@ -145,13 +148,13 @@ export default function AboutPage() {
                 Tired of the Hype in Financial Services
               </h2>
               <p>
-                The credit industry is full of noisy marketing. Companies flash rented sports cars, promise &ldquo;750 credit scores in 30 days,&rdquo; and send generic cookie-cutter letters that often do more damage than good. Consumers end up stuck on $150/month subscriptions for years without understanding how their credit actually works.
+                The credit industry is full of noisy marketing. Companies flash rented sports cars, promise &ldquo;750 credit scores in 30 days,&rdquo; and send generic cookie-cutter letters that often do more damage than good. Consumers end up stuck on expensive monthly subscriptions for years without understanding how their credit actually works.
               </p>
               <p>
-                Razila founded CLIENTSMAX on a radically different premise: <strong className="font-semibold text-[#20221F]">Credit is a learnable science.</strong> You don&apos;t need an agency to fight your battles in perpetuity. You need an educator to sit down with you, interpret your 3-bureau report line-by-line, and teach you how underwriting formulas perceive your financial profile.
+                Razila founded CLIENTSMAX on a radically different premise: <strong className="font-semibold text-[#20221F]">Credit is a learnable skill.</strong> You don&apos;t need an agency to file endless disputes on your behalf. You need an experienced strategist to sit down with you, interpret your 3-bureau report line by line, and teach you how underwriting models perceive your financial profile.
               </p>
               <p>
-                From first-time car buyers seeking prime financing to independent entrepreneurs separating business expenses from personal trade lines, CLIENTSMAX serves individuals who demand high standards, absolute transparency, and genuine financial mastery.
+                From first-time car buyers seeking prime financing to independent entrepreneurs separating business expenses from personal credit, CLIENTSMAX serves individuals who demand high standards, absolute transparency, and genuine financial mastery.
               </p>
             </div>
           </div>

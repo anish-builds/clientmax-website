@@ -6,11 +6,15 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_CONFIG } from '@/content/site';
 import { ArrowRight, Menu, X, ArrowUpRight } from 'lucide-react';
+import { useRedirect } from '@/context/RedirectContext';
+import { getResource } from '@/content/resources';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { initiateRedirect } = useRedirect();
+  const consultationResource = getResource('consultation');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,8 +81,15 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Primary Action Button (Desktop) - Sharp editorial button */}
-          <div className="hidden md:flex items-center gap-5">
+          {/* Primary Action Buttons (Desktop) */}
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={() => initiateRedirect(consultationResource)}
+              data-cursor="view"
+              className="text-xs font-mono tracking-wider uppercase text-[#4F5A48] hover:text-[#20221F] transition-colors font-semibold"
+            >
+              Consultation
+            </button>
             <Link
               href={SITE_CONFIG.ctaButton.href}
               data-cursor="go"
@@ -187,20 +198,23 @@ export function Navbar() {
               transition={{ delay: 0.28, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="pt-8 space-y-4 border-t border-[rgba(32,34,31,0.10)] relative z-10"
             >
-              <Link
-                href={SITE_CONFIG.ctaButton.href}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  initiateRedirect(consultationResource);
+                }}
                 className="flex items-center justify-between w-full bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold px-6 py-4 rounded-none"
               >
-                <span>{SITE_CONFIG.ctaButton.label}</span>
-                <ArrowRight size={14} className="text-[#B9D65A]" />
-              </Link>
+                <span>BOOK YOUR CREDIT CONSULTATION</span>
+                <ArrowUpRight size={14} className="text-[#B9D65A]" />
+              </button>
 
               <Link
-                href={SITE_CONFIG.secondaryCta.href}
+                href={SITE_CONFIG.ctaButton.href}
                 className="flex items-center justify-between w-full border border-[rgba(32,34,31,0.20)] text-[#20221F] font-mono text-xs tracking-widest uppercase px-6 py-3.5 hover:bg-[#EAE5DA] transition-colors rounded-none"
               >
-                <span>{SITE_CONFIG.secondaryCta.label}</span>
-                <ArrowUpRight size={14} className="text-[#4F5A48]" />
+                <span>{SITE_CONFIG.ctaButton.label}</span>
+                <ArrowRight size={14} className="text-[#4F5A48]" />
               </Link>
 
               <div className="text-[11px] text-[#4F5A48] font-mono tracking-wider pt-2">

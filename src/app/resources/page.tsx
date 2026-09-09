@@ -19,18 +19,18 @@ export default function ResourcesPage() {
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 bg-[#20221F]" />
               <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                DIRECTORY // CURATED ECOSYSTEM
+                DIRECTORY // CURATED RESOURCES
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-editorial-serif text-[#20221F] tracking-tight leading-[1.02]">
               THE CLIENTSMAX
               <br />
-              <span className="italic text-[#4F5A48]">RESOURCE ARSENAL.</span>
+              <span className="italic text-[#4F5A48]">RECOMMENDED RESOURCES.</span>
             </h1>
 
             <p className="text-base sm:text-xl text-[#4F5A48] font-light max-w-2xl leading-relaxed pt-2">
-              We do not accept generic ad sponsorships. Every external tool and platform curated here has been vetted by Razila for institutional efficacy, transparency, and consumer protection.
+              We do not accept paid ad sponsorships. Every tool and advisory resource curated here has been personally vetted by Razila for transparency, consumer protection, and practical value.
             </p>
           </div>
         </div>

@@ -8,6 +8,7 @@ import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
 
 export const metadata: Metadata = {
   title: {
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
   keywords: [
     'credit education',
     'financial strategy',
-    'credit architecture',
+    'credit consultation',
     'Razila credit strategist',
-    '3-bureau audit',
+    '3-bureau report review',
     'vehicle financing strategy',
     'credit building',
     'CLIENTSMAX',
@@ -76,6 +77,9 @@ export default function RootLayout({
 
             {/* Main Content Area */}
             <main className="flex-1">{children}</main>
+
+            {/* Unobtrusive Mobile Floating Booking CTA */}
+            <MobileStickyCTA />
 
             {/* Monolithic Editorial Footer */}
             <Footer />

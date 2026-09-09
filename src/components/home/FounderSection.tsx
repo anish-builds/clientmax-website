@@ -57,7 +57,7 @@ export function FounderSection() {
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 bg-[#20221F]" />
                 <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                  LEADERSHIP // VISION
+                  FOUNDER // STRATEGIC LEADERSHIP
                 </span>
               </div>
 
@@ -65,8 +65,8 @@ export function FounderSection() {
                 MEET RAZILA<span className="text-[#B9D65A]">.</span>
               </h2>
 
-              <p className="text-xs font-mono text-[#4F5A48] tracking-widest uppercase font-semibold">
-                ARCHITECT OF STRATEGIC CREDIT LITERACY
+              <p className="text-base sm:text-lg font-editorial-serif text-[#20221F] leading-snug">
+                Credit strategist helping clients understand, build, and use credit with intention.
               </p>
             </div>
 
@@ -78,10 +78,10 @@ export function FounderSection() {
             {/* Concise Story */}
             <div className="space-y-4 text-sm text-[#4F5A48] font-light leading-relaxed">
               <p>
-                Razila founded CLIENTSMAX to dismantle the predatory and opaque practices common in the credit repair industry. Where conventional agencies push automated generic dispute letters and make empty guarantees, Razila built a strategic advisory model grounded in mathematics, bureau underwriting mechanics, and financial sovereignty.
+                Razila founded CLIENTSMAX to counter the aggressive sales tactics, automated dispute templates, and empty promises common across the credit industry. Her approach treats personal credit not as an emergency repair, but as a deliberate financial skill that puts you in control.
               </p>
               <p>
-                Under her guidance, clients don&apos;t just see their credit reports cleaned—they learn how to read institutional risk, avoid dealership traps, and leverage prime lending to build lasting family wealth.
+                Through direct 1-on-1 consultations, Razila helps clients examine their 3-bureau credit reports line by line, understand how lenders evaluate risk, and sequence their financial moves so they can navigate auto loans, mortgages, and credit approvals with genuine confidence.
               </p>
             </div>
 
@@ -92,7 +92,7 @@ export function FounderSection() {
                 data-cursor="view"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#383d35] transition-colors rounded-none border border-[#20221F]"
               >
-                <span>BOOK A CONSULTATION →</span>
+                <span>BOOK A ONE-ON-ONE CONSULTATION →</span>
                 <ArrowUpRight size={14} className="text-[#B9D65A]" />
               </button>
 

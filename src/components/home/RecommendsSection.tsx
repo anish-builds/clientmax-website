@@ -18,7 +18,7 @@ export function RecommendsSection() {
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 bg-[#20221F]" />
               <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                CURATED ARSENAL // INSTITUTIONAL LEDGER
+                RECOMMENDED RESOURCES // TRUSTED TOOLS
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal font-editorial-serif text-[#20221F] tracking-tight">
@@ -27,7 +27,7 @@ export function RecommendsSection() {
           </div>
 
           <p className="text-xs text-[#4F5A48] max-w-md font-light leading-relaxed">
-            CLIENTSMAX curates exclusively verified institutional resources. Each platform occupies a distinct mathematical role in your credit progression.
+            CLIENTSMAX recommends vetted resources and advisory tools to help you execute each step of your credit journey with clarity and confidence.
           </p>
         </div>
 

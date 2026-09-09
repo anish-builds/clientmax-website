@@ -15,7 +15,7 @@ export function EducationSection() {
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 bg-[#20221F]" />
                 <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                  FINANCIAL DISCIPLINE // UNDERWRITING ANATOMY
+                  CREDIT EDUCATION // SCORING PRINCIPLES
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-editorial-serif text-[#20221F] tracking-tight leading-[0.98]">
@@ -28,10 +28,10 @@ export function EducationSection() {
             <div className="lg:max-w-md space-y-2">
               <div className="flex items-center gap-2 text-xs font-mono text-[#20221F] uppercase tracking-wider font-semibold">
                 <BookOpen size={14} className="text-[#4F5A48]" />
-                <span>Deterministic Scoring Architecture</span>
+                <span>How Scoring Models Evaluate Credit</span>
               </div>
               <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
-                Modern credit scores are mathematically weighted risk evaluations. When you understand how algorithms parse your data, credit management stops being reactive and becomes deliberate.
+                FICO scoring models consider several major categories when evaluating risk. Understanding how lenders review your profile makes managing your credit intentional rather than reactive.
               </p>
             </div>
           </div>
@@ -48,7 +48,7 @@ export function EducationSection() {
             />
           </div>
           <div className="flex flex-wrap items-center justify-between pt-3 px-2 text-[10px] font-mono text-[#4F5A48] uppercase tracking-wider">
-            <span>PLATE NO. 02 // ARCHITECTURAL FINANCIAL ANALYSIS</span>
+            <span>PLATE NO. 02 // FINANCIAL ANALYSIS STUDY</span>
             <span>FOUNDED BY RAZILA • CLIENTSMAX STRATEGIC ADVISORY</span>
           </div>
         </div>
@@ -79,7 +79,7 @@ export function EducationSection() {
                 {/* Column 2: Editorial Explanation & Strategic Rule */}
                 <div className="lg:col-span-4 space-y-4">
                   <span className="text-[9px] font-mono tracking-widest uppercase text-[#4F5A48] block font-semibold">
-                    HOW THE BUREAU ALGORITHM EVALUATES THIS:
+                    HOW LENDERS & BUREAUS EVALUATE THIS:
                   </span>
                   <p className="text-xs sm:text-sm text-[#4F5A48] font-light leading-relaxed">
                     {factor.editorialSummary}
@@ -87,7 +87,7 @@ export function EducationSection() {
 
                   <div className="pt-3 border-t border-[rgba(32,34,31,0.10)] space-y-1">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-[#20221F] block font-semibold">
-                      OPERATIONAL DIRECTIVE:
+                      KEY STRATEGY:
                     </span>
                     <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
                       {factor.strategicTakeaway}
@@ -98,7 +98,7 @@ export function EducationSection() {
                 {/* Column 3: Industry Misconception vs Reality */}
                 <div className="lg:col-span-4 bg-[#EAE5DA]/50 border border-[rgba(32,34,31,0.12)] p-6 space-y-2 shadow-sm">
                   <span className="text-[9px] font-mono uppercase tracking-widest text-[#20221F] block font-semibold">
-                    MYTH VS. MATHEMATICAL FACT:
+                    MYTH VS. REALITY:
                   </span>
                   <p className="text-xs text-[#4F5A48] font-light leading-relaxed italic">
                     {factor.misconception}
@@ -113,10 +113,10 @@ export function EducationSection() {
         <div className="mt-16 p-6 border border-[rgba(32,34,31,0.12)] bg-[#EAE5DA]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
           <div className="space-y-1">
             <span className="text-[10px] font-mono text-[#20221F] uppercase tracking-widest font-semibold">
-              ACADEMIC DISCLOSURE
+              SCORING MODEL DISCLOSURE
             </span>
             <p className="text-xs text-[#4F5A48] font-light leading-relaxed max-w-3xl">
-              Scoring algorithms vary across model versions (FICO 8, FICO 9, FICO Auto, VantageScore 3.0/4.0). CLIENTSMAX teaches fundamental credit mathematics rather than short-term algorithmic tricks.
+              FICO scoring models consider several major factors, including payment history, amounts owed, length of credit history, credit mix, and new credit. The relative impact can vary by scoring model and individual profile. CLIENTSMAX teaches fundamental credit principles to help you navigate lending decisions with clarity.
             </p>
           </div>
           <span className="text-[10px] font-mono text-[#4F5A48] shrink-0 border border-[rgba(32,34,31,0.18)] bg-[#F5F2EA] px-3 py-1 uppercase">

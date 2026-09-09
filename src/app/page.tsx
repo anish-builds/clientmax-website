@@ -4,8 +4,10 @@ import { PathwaySection } from '@/components/home/PathwaySection';
 import { JourneyTimeline } from '@/components/home/JourneyTimeline';
 import { EducationSection } from '@/components/home/EducationSection';
 import { FounderSection } from '@/components/home/FounderSection';
+import { ProcessSection } from '@/components/home/ProcessSection';
 import { RecommendsSection } from '@/components/home/RecommendsSection';
 import { ClientStorySection } from '@/components/home/ClientStorySection';
+import { FAQSection } from '@/components/home/FAQSection';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { SocialEditorial } from '@/components/home/SocialEditorial';
 
@@ -27,17 +29,24 @@ export default function HomePage() {
       {/* 5. Editorial Founder Section ("Meet Razila") */}
       <FounderSection />
 
-      {/* 6. Curated Ecosystem ("CLIENTSMAX RECOMMENDS") */}
+      {/* 6. What Happens Next? (3-Step Consultation Process) */}
+      <ProcessSection />
+
+      {/* 7. Curated Ecosystem ("CLIENTSMAX RECOMMENDS") */}
       <RecommendsSection />
 
-      {/* 7. Documented Proof & Client Stories */}
+      {/* 8. Documented Proof & Client Stories */}
       <ClientStorySection />
 
-      {/* 8. Final High-Impact CTA */}
+      {/* 9. Frequently Asked Questions */}
+      <FAQSection />
+
+      {/* 10. Final High-Impact CTA */}
       <FinalCTA />
 
-      {/* 9. Editorial Social Channels */}
+      {/* 11. Editorial Social Channels */}
       <SocialEditorial />
     </div>
   );
 }
+

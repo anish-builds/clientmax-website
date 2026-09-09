@@ -96,7 +96,7 @@ export function Hero() {
               variants={itemVariants}
               className="text-base sm:text-lg text-[#4F5A48] max-w-xl font-light leading-relaxed pt-2"
             >
-              Credit is a deterministic risk calculation, not an emotional barrier. Founded by Razila, CLIENTSMAX equips you with the institutional intelligence to audit your bureaus, sequence your financial moves, and command prime borrowing terms.
+              Credit is a structured system, not an emotional barrier. Founded by Razila, CLIENTSMAX gives you the strategic clarity to understand your 3-bureau report, sequence your financial moves, and command prime borrowing terms.
             </motion.p>
 
             {/* Dual CTAs with Sharp Rectangular Geometry */}
@@ -104,29 +104,29 @@ export function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"
             >
+              <button
+                onClick={() => initiateRedirect(consultationResource)}
+                data-cursor="view"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold hover:bg-[#383d35] transition-all border border-[#20221F] rounded-none shadow-sm"
+              >
+                <span>BOOK A ONE-ON-ONE CONSULTATION</span>
+                <ArrowUpRight
+                  size={14}
+                  className="text-[#B9D65A] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </button>
+
               <Link
                 href="/start"
                 data-cursor="go"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold hover:bg-[#383d35] transition-all border border-[#20221F] rounded-none shadow-sm"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[rgba(32,34,31,0.25)] text-[#20221F] font-mono text-xs tracking-widest uppercase hover:border-[#20221F] hover:bg-[#EAE5DA] transition-all bg-transparent rounded-none"
               >
                 <span>START YOUR JOURNEY</span>
                 <ArrowRight
                   size={14}
-                  className="text-[#B9D65A] transition-transform group-hover:translate-x-1.5"
+                  className="text-[#4F5A48] transition-transform group-hover:translate-x-1"
                 />
               </Link>
-
-              <button
-                onClick={() => initiateRedirect(consultationResource)}
-                data-cursor="view"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[rgba(32,34,31,0.25)] text-[#20221F] font-mono text-xs tracking-widest uppercase hover:border-[#20221F] hover:bg-[#EAE5DA] transition-all bg-transparent rounded-none"
-              >
-                <span>BOOK A CONSULTATION</span>
-                <ArrowUpRight
-                  size={14}
-                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#4F5A48]"
-                />
-              </button>
             </motion.div>
 
             {/* Trust Indicator: Editorial Statement Strip */}
@@ -134,11 +134,11 @@ export function Hero() {
               variants={itemVariants}
               className="pt-6 border-t border-[rgba(32,34,31,0.12)] flex flex-wrap items-center gap-6 text-[10px] font-mono tracking-wider text-[#4F5A48] uppercase"
             >
-              <span className="text-[#20221F] font-semibold">DETERMINISTIC UNDERWRITING</span>
+              <span className="text-[#20221F] font-semibold">STRUCTURED CREDIT STRATEGY</span>
               <span className="h-1 w-1 bg-[#B9D65A]" />
-              <span>ZERO SYNTHETIC CLAIMS</span>
+              <span>ZERO EMPTY PROMISES</span>
               <span className="h-1 w-1 bg-[rgba(32,34,31,0.2)]" />
-              <span>FOUNDED BY RAZILA</span>
+              <span>DIRECT ADVISORY WITH RAZILA</span>
             </motion.div>
           </div>
 
@@ -152,7 +152,7 @@ export function Hero() {
               {/* Top Archival Tag */}
               <div className="flex items-center justify-between pb-3 px-1 border-b border-[rgba(32,34,31,0.10)] mb-3">
                 <span className="text-[9px] font-mono tracking-[0.25em] text-[#4F5A48] uppercase">
-                  FOUNDER ARCHIVE // NO. 01
+                  FOUNDER PROFILE
                 </span>
                 <span className="text-[9px] font-mono text-[#20221F] font-semibold">
                   RAZILA
@@ -176,11 +176,11 @@ export function Hero() {
                     Razila
                   </span>
                   <span className="text-[9px] font-mono uppercase tracking-widest text-[#4F5A48]">
-                    Founder & Strategist
+                    Credit Strategist & Founder
                   </span>
                 </div>
                 <p className="text-xs text-[#4F5A48] font-light italic leading-relaxed border-l border-[#B9D65A] pl-3 py-0.5">
-                  &ldquo;Credit is not an emergency fix. It is the architectural foundation of modern financial sovereignty.&rdquo;
+                  &ldquo;Credit is not an emergency fix. It is the foundation for long-term financial strength.&rdquo;
                 </p>
               </div>
             </div>
