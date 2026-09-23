@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Fraunces, Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_CONFIG } from '@/content/site';
 import { RedirectProvider } from '@/context/RedirectContext';
@@ -7,6 +8,26 @@ import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
+
+// ── Self-hosted via next/font — no external Google requests at runtime ────────
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  // Fraunces is a variable font; omit explicit weights so axes are allowed.
+  // We rely on CSS font-weight utilities (font-normal=400, font-semibold=600)
+  // to select within the variable range at use-site.
+  axes: ['SOFT', 'opsz'],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  // Inter is also a variable font — next/font will self-host the full VF.
+  // Individual weights (400/500/600) are selected with Tailwind utilities.
+  variable: '--font-body',
+  display: 'swap',
+});
+
 
 export const metadata: Metadata = {
   title: {
@@ -57,7 +78,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className="bg-white text-[#111827] selection:bg-[#15803D] selection:text-white">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${fraunces.variable} ${inter.variable} bg-white text-[#111827] selection:bg-[#15803D] selection:text-white`}
+    >
       <body className="min-h-screen flex flex-col font-sans antialiased bg-white text-[#111827] relative">
         <RedirectProvider>
           <SmoothScroll>

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+/* Fonts are self-hosted via next/font/google (see src/app/layout.tsx).
+   No @import or <link> tags needed — next/font injects optimised <link preload>. */
 @import "tailwindcss";
 
 @theme {
@@ -20,11 +21,17 @@
   --color-surface-off: #F8FAFC;
   --color-surface-muted: #F1F5F9;
   --color-surface-dark: #0B0F17;
+}
 
-  /* Typography Design Tokens */
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
+/* ─── Font Tokens (inline so var() is evaluated at runtime) ─────────────────
+   next/font injects --font-heading and --font-body on <html> at render time.
+   @theme inline propagates them into Tailwind utility classes (font-display,
+   font-sans, font-mono) without baking literal strings at build time.
+───────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  --font-display: var(--font-heading);
+  --font-sans:    var(--font-body);
+  --font-mono:    var(--font-body);
 }
 
 :root {
@@ -45,21 +52,22 @@
   box-sizing: border-box;
 }
 
-/* ─── IBM Plex Mono: Editorial Label System ──────────────────────────────────
-   All font-mono usages pick up SemiBold weight automatically.
-   Tracking is set to 0.14em for high-prestige financial label authority.
-──────────────────────────────────────────────────────────────────────────── */
+/* ─── Uppercase Label System ────────────────────────────────────────────────
+   Labels/eyebrow text: Inter (--font-body) with tight tracking.
+   The .font-mono class keeps its visual character (uppercase + tracking)
+   but now uses Inter instead of IBM Plex Mono for the body-font pairing.
+───────────────────────────────────────────────────────────────────────────── */
 .font-mono {
-  font-family: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, sans-serif);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
 }
 
 html {
   background-color: #FFFFFF;
   color: #0F172A;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -72,7 +80,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   line-height: 1.65;
 }
 
@@ -89,17 +97,17 @@ body {
 
 /* Typography Helpers */
 .font-display {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-heading, Georgia, serif);
   letter-spacing: -0.02em;
 }
 
 .font-editorial-serif {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-heading, Georgia, serif);
   letter-spacing: -0.02em;
 }
 
 .font-editorial-sans {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, sans-serif);
 }
 
 /* ─── Shared Card Elevation & Hover-Lift System ───────────────────────────────
@@ -124,10 +132,10 @@ body {
 .btn-primary {
   background-color: #15803D;
   color: #FFFFFF;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   padding: 0.875rem 1.75rem;
   border-radius: 0.125rem;
@@ -151,10 +159,10 @@ body {
   border: 1px solid #CBD5E1;
   color: #0F172A;
   background-color: #FFFFFF;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   padding: 0.875rem 1.75rem;
   border-radius: 0.125rem;
