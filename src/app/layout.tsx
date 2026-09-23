@@ -8,6 +8,7 @@ import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
+import { CustomCursor } from '@/components/ui/CustomCursor';
 
 // ── Self-hosted via next/font — no external Google requests at runtime ────────
 const fraunces = Fraunces({
@@ -84,6 +85,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} bg-white text-[#111827] selection:bg-[#15803D] selection:text-white`}
     >
       <body className="min-h-screen flex flex-col font-sans antialiased bg-white text-[#111827] relative">
+        <CustomCursor />
         <RedirectProvider>
           <SmoothScroll>
             {/* Outbound Gateway Modal for Verified Partner Links */}
