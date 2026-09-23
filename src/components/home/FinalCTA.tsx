@@ -11,60 +11,48 @@ export function FinalCTA() {
   const consultationResource = getResource('consultation');
 
   return (
-    <section className="relative py-36 border-b border-[rgba(32,34,31,0.12)] bg-[#EAE5DA] overflow-hidden">
-      {/* Background Subtle Monogram Accent */}
+    <section className="relative py-28 sm:py-36 bg-gray-950 text-white overflow-hidden border-b border-gray-900">
+      {/* Background Accent */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 right-12 text-[rgba(32,34,31,0.04)] font-editorial-serif text-[28vw] leading-none pointer-events-none select-none -z-10"
-      >
-        C
-      </div>
+        className="absolute top-0 right-0 w-96 h-96 bg-green-950/30 rounded-full blur-3xl pointer-events-none -z-0"
+      />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-4xl space-y-10">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 bg-[#20221F]" />
-            <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-              NEXT STEPS // IMMEDIATE ACTION
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+        <div className="max-w-3xl space-y-8">
+          <div className="inline-flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-green-500" />
+            <span className="text-xs font-mono tracking-widest text-green-400 uppercase font-semibold">
+              GET STARTED TODAY
             </span>
           </div>
 
-          {/* Enormous Typography */}
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal font-editorial-serif text-[#20221F] tracking-[-0.035em] leading-[0.93]">
-            READY FOR YOUR
-            <br />
-            <span className="italic text-[#4F5A48]">NEXT MOVE?</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display text-white tracking-tight leading-[1.05]">
+            Ready to take control of your credit?
           </h2>
 
-          <p className="text-base sm:text-xl text-[#4F5A48] font-light max-w-2xl leading-relaxed">
-            Take control of your credit with clear, intentional strategy. Book a 1-on-1 consultation directly with Razila or explore our guided diagnostic.
+          <p className="text-base sm:text-xl text-gray-300 font-normal leading-relaxed">
+            Move forward with clear, personalized credit strategy. Book a 1-on-1 consultation directly with Razila or find your optimal entry point.
           </p>
 
-          {/* Dual Action Buttons with Directional Interactions */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
             <button
               onClick={() => initiateRedirect(consultationResource)}
-              data-cursor="view"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold hover:bg-[#383d35] transition-all border border-[#20221F] rounded-none shadow-sm"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-green-700 hover:bg-green-600 text-white font-semibold text-xs tracking-wider uppercase transition-colors rounded-sm shadow-md cursor-pointer"
             >
-              <span>BOOK A ONE-ON-ONE CONSULTATION</span>
+              <span>BOOK A CONSULTATION</span>
               <ArrowUpRight
-                size={14}
-                className="text-[#B9D65A] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                size={15}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-green-200"
               />
             </button>
 
             <Link
               href="/start"
-              data-cursor="go"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-[rgba(32,34,31,0.25)] text-[#20221F] font-mono text-xs tracking-widest uppercase hover:border-[#20221F] hover:bg-[#F5F2EA] transition-all bg-transparent rounded-none"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-gray-800 text-gray-200 hover:text-white hover:border-gray-600 hover:bg-gray-900/60 font-medium text-xs tracking-wider uppercase transition-colors rounded-sm"
             >
               <span>START YOUR JOURNEY</span>
-              <ArrowRight
-                size={14}
-                className="text-[#4F5A48] transition-transform group-hover:translate-x-1"
-              />
+              <ArrowRight size={14} className="text-gray-400" />
             </Link>
           </div>
         </div>

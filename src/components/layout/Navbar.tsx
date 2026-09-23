@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_CONFIG } from '@/content/site';
-import { ArrowRight, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { useRedirect } from '@/context/RedirectContext';
 import { getResource } from '@/content/resources';
 
@@ -18,7 +18,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -33,47 +33,47 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
           isScrolled
-            ? 'bg-[#F5F2EA]/95 backdrop-blur-md border-b border-[rgba(32,34,31,0.08)] py-4 shadow-sm'
-            : 'bg-transparent border-b border-transparent py-6'
+            ? 'bg-white border-b border-gray-200 py-3 shadow-xs'
+            : 'bg-white/95 border-b border-gray-100 py-4 sm:py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
           {/* Brand Wordmark */}
           <Link
             href="/"
-            className="group flex flex-col items-start focus:outline-none"
-            data-cursor="go"
+            className="flex items-center gap-2.5 focus:outline-none group"
           >
-            <span className="text-xl sm:text-2xl font-normal tracking-tight text-[#20221F] font-editorial-serif leading-none group-hover:text-[#4F5A48] transition-colors duration-300">
-              {SITE_CONFIG.name}
-            </span>
-            <span className="text-[9px] font-mono tracking-[0.25em] text-[#4F5A48] uppercase mt-1 transition-colors duration-300">
-              FINANCIAL STRATEGY
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 font-display leading-none group-hover:text-green-700 transition-colors">
+                {SITE_CONFIG.name}
+              </span>
+              <span className="text-[10px] font-mono tracking-widest text-green-700 font-semibold mt-1">
+                CREDIT STRATEGY
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+          <nav className="hidden md:flex items-center gap-7 lg:gap-9">
             {SITE_CONFIG.primaryNav.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-xs uppercase tracking-[0.18em] font-mono transition-colors duration-200 relative py-1 ${
+                  className={`text-sm tracking-wide font-medium transition-colors relative py-1 ${
                     isActive
-                      ? 'text-[#20221F] font-semibold'
-                      : 'text-[#4F5A48] hover:text-[#20221F]'
+                      ? 'text-gray-900 font-semibold'
+                      : 'text-gray-600 hover:text-green-700'
                   }`}
-                  data-cursor="pointer"
                 >
                   {item.label}
                   {isActive && (
                     <motion.span
                       layoutId="nav-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#20221F]"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-green-700 rounded-full"
                     />
                   )}
                 </Link>
@@ -81,146 +81,90 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Primary Action Buttons (Desktop) */}
+          {/* Primary Action Button (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => initiateRedirect(consultationResource)}
-              data-cursor="view"
-              className="text-xs font-mono tracking-wider uppercase text-[#4F5A48] hover:text-[#20221F] transition-colors font-semibold"
+              className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 transition-colors rounded-sm shadow-xs cursor-pointer"
             >
-              Consultation
-            </button>
-            <Link
-              href={SITE_CONFIG.ctaButton.href}
-              data-cursor="go"
-              className="group inline-flex items-center gap-2.5 text-xs font-mono tracking-widest uppercase bg-[#20221F] text-[#F5F2EA] font-semibold px-5 py-2.5 hover:bg-[#383d35] active:scale-[0.98] transition-all duration-200 border border-[#20221F] rounded-none"
-            >
-              <span>{SITE_CONFIG.ctaButton.label}</span>
-              <ArrowRight
-                size={13}
-                className="transition-transform duration-200 group-hover:translate-x-1 text-[#B9D65A]"
+              <span>BOOK A CONSULTATION</span>
+              <ArrowUpRight
+                size={14}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
-            </Link>
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
-            className="md:hidden p-2 text-[#20221F] hover:text-[#4F5A48] focus:outline-none transition-colors"
+            className="md:hidden p-2 text-gray-800 hover:text-green-700 focus:outline-none transition-colors"
           >
-            <AnimatePresence mode="wait" initial={false}>
-              {mobileMenuOpen ? (
-                <motion.span
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <X size={22} />
-                </motion.span>
-              ) : (
-                <motion.span
-                  key="open"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <Menu size={22} />
-                </motion.span>
-              )}
-            </AnimatePresence>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </header>
 
-      {/* Bespoke Mobile Navigation Overlay */}
+      {/* Clean Full-Screen Mobile Navigation Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-[#F5F2EA] pt-28 px-8 pb-12 flex flex-col justify-between md:hidden overflow-y-auto"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-white pt-24 px-6 pb-8 flex flex-col justify-between md:hidden overflow-y-auto"
           >
-            <div className="space-y-6 relative z-10">
-              <span className="text-[10px] font-mono tracking-[0.25em] text-[#4F5A48] uppercase block mb-4">
-                NAVIGATION / DIRECTORY
+            <div className="space-y-6 pt-4">
+              <span className="text-[11px] font-mono tracking-widest text-green-700 uppercase font-semibold block">
+                NAVIGATION
               </span>
 
-              <nav className="flex flex-col space-y-4">
-                {SITE_CONFIG.primaryNav.map((item, idx) => {
+              <nav className="flex flex-col divide-y divide-gray-100">
+                {SITE_CONFIG.primaryNav.map((item) => {
                   const isActive = pathname === item.href;
                   return (
-                    <motion.div
+                    <Link
                       key={item.href}
-                      initial={{ opacity: 0, x: -16 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.06, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      href={item.href}
+                      className={`py-4 text-xl font-display font-medium flex items-center justify-between ${
+                        isActive ? 'text-green-700 font-bold' : 'text-gray-900'
+                      }`}
                     >
-                      <Link
-                        href={item.href}
-                        className="group flex items-baseline justify-between border-b border-[rgba(32,34,31,0.10)] pb-4"
-                      >
-                        <div className="flex items-baseline gap-3">
-                          <span className="text-xs font-mono text-[#4F5A48]">
-                            0{idx + 1}
-                          </span>
-                          <span
-                            className={`text-2xl font-editorial-serif tracking-tight ${
-                              isActive ? 'text-[#20221F] font-semibold' : 'text-[#4F5A48]'
-                            }`}
-                          >
-                            {item.label}
-                          </span>
-                        </div>
-                        <ArrowRight
-                          size={16}
-                          className={`transition-transform group-hover:translate-x-1 ${
-                            isActive ? 'text-[#20221F]' : 'text-[#4F5A48]'
-                          }`}
-                        />
-                      </Link>
-                    </motion.div>
+                      <span>{item.label}</span>
+                      <span className="text-xs font-mono text-gray-400">→</span>
+                    </Link>
                   );
                 })}
               </nav>
             </div>
 
-            {/* Mobile Footer CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.28, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="pt-8 space-y-4 border-t border-[rgba(32,34,31,0.10)] relative z-10"
-            >
+            {/* Mobile Drawer Footer CTA */}
+            <div className="pt-6 space-y-3 border-t border-gray-100 mt-auto">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   initiateRedirect(consultationResource);
                 }}
-                className="flex items-center justify-between w-full bg-[#20221F] text-[#F5F2EA] font-mono text-xs tracking-widest uppercase font-semibold px-6 py-4 rounded-none"
+                className="w-full flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase py-4 rounded-sm transition-colors"
               >
-                <span>BOOK YOUR CREDIT CONSULTATION</span>
-                <ArrowUpRight size={14} className="text-[#B9D65A]" />
+                <span>BOOK A CONSULTATION</span>
+                <ArrowUpRight size={15} />
               </button>
 
               <Link
-                href={SITE_CONFIG.ctaButton.href}
-                className="flex items-center justify-between w-full border border-[rgba(32,34,31,0.20)] text-[#20221F] font-mono text-xs tracking-widest uppercase px-6 py-3.5 hover:bg-[#EAE5DA] transition-colors rounded-none"
+                href="/start"
+                className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-800 font-medium text-xs tracking-wider uppercase py-3.5 hover:bg-gray-50 transition-colors rounded-sm"
               >
-                <span>{SITE_CONFIG.ctaButton.label}</span>
-                <ArrowRight size={14} className="text-[#4F5A48]" />
+                <span>START YOUR JOURNEY</span>
               </Link>
 
-              <div className="text-[11px] text-[#4F5A48] font-mono tracking-wider pt-2">
-                FOUNDED BY RAZILA • STRATEGIC CREDIT ADVISORY
+              <div className="text-[11px] text-gray-500 text-center pt-2">
+                CLIENTSMAX • Founded by Razila (2021)
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

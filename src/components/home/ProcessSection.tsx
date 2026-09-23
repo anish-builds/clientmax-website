@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowUpRight, Calendar, Search, Compass } from 'lucide-react';
+import { ArrowUpRight, Calendar, Search, Compass, CheckCircle2 } from 'lucide-react';
 import { useRedirect } from '@/context/RedirectContext';
 import { getResource } from '@/content/resources';
 
@@ -13,116 +13,114 @@ export function ProcessSection() {
     {
       number: '01',
       title: 'BOOK',
-      headline: 'Choose a time that works for you',
+      headline: 'Choose a time that fits your schedule',
       description:
-        'Select a convenient time on Calendly for your private 1-on-1 video call directly with Razila. No gatekeepers, no sales reps.',
+        'Select a convenient time on Calendly for your private 1-on-1 video consultation directly with Razila. No sales intermediaries or offshore reps.',
       icon: Calendar,
       meta: 'CALENDLY SCHEDULER',
     },
     {
       number: '02',
       title: 'REVIEW',
-      headline: 'Discuss your situation, goals, and priorities',
+      headline: 'Examine your 3-bureau report line by line',
       description:
-        'Examine your 3-bureau credit report line by line, evaluate balance reporting cycles, and identify what is holding your scores or approvals back.',
+        'Audit your Experian, Equifax, and TransUnion files. Identify balance reporting bottlenecks, remark discrepancies, and score suppression factors.',
       icon: Search,
       meta: 'CONFIDENTIAL AUDIT',
     },
     {
       number: '03',
       title: 'STRATEGIZE',
-      headline: 'Leave with a clear understanding of your next steps',
+      headline: 'Leave with a concrete action roadmap',
       description:
-        'Walk away with a customized, prioritized roadmap outlining statement dates, balance targets, and key actions for your upcoming financial milestones.',
+        'Walk away with a prioritized checklist outlining statement cutoff dates, balance targets, and exact sequencing for your upcoming financial goals.',
       icon: Compass,
       meta: 'CUSTOM ACTION PLAN',
     },
   ];
 
   return (
-    <section className="relative py-28 border-b border-[rgba(32,34,31,0.12)] bg-[#F5F2EA] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="py-24 sm:py-32 bg-gray-50 border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-16 border-b border-[rgba(32,34,31,0.10)] gap-6">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 bg-[#20221F]" />
-              <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
-                CONSULTATION WORKFLOW // WHAT TO EXPECT
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-16 border-b border-gray-200 gap-6">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-green-600" />
+              <span className="text-xs font-mono tracking-widest text-green-700 uppercase font-bold">
+                CONSULTATION PROCESS
               </span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal font-editorial-serif text-[#20221F] tracking-tight">
-              WHAT HAPPENS NEXT<span className="text-[#B9D65A]">.</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-gray-950 tracking-tight">
+              What Happens Next<span className="text-green-600">.</span>
             </h2>
           </div>
 
-          <p className="text-xs text-[#4F5A48] max-w-md font-light leading-relaxed">
-            Booking a consultation is straightforward and confidential. Here is how we move from where you are today to complete strategic clarity.
+          <p className="text-sm text-gray-600 max-w-md leading-relaxed font-normal">
+            Booking a consultation is straightforward, private, and actionable. Here is how we turn confusing credit files into clear financial momentum.
           </p>
         </div>
 
-        {/* 3-Step Editorial Process Grid */}
+        {/* 3 Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
           {steps.map((step) => {
             const IconComponent = step.icon;
             return (
               <div
                 key={step.number}
-                className="border border-[rgba(32,34,31,0.15)] bg-[#EAE5DA]/40 p-8 sm:p-10 flex flex-col justify-between space-y-8 shadow-sm relative group hover:bg-[#EAE5DA] transition-all duration-300"
+                className="bg-white p-8 sm:p-9 rounded-sm border border-gray-200 hover:border-green-600 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-8"
               >
-                <div className="space-y-6">
-                  {/* Top Bar with Number & Icon */}
-                  <div className="flex items-center justify-between pb-4 border-b border-[rgba(32,34,31,0.10)]">
+                <div className="space-y-5">
+                  <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-2xl sm:text-3xl font-mono text-[#20221F] font-bold">
+                      <span className="text-3xl font-mono font-extrabold text-green-700">
                         {step.number}
                       </span>
-                      <span className="text-xs font-mono text-[#4F5A48] uppercase tracking-widest">
+                      <span className="text-xs font-mono text-gray-400 uppercase tracking-widest font-semibold">
                         — {step.title}
                       </span>
                     </div>
-                    <IconComponent size={18} className="text-[#4F5A48]" />
+                    <div className="p-2 rounded-full bg-green-50 text-green-700">
+                      <IconComponent size={18} />
+                    </div>
                   </div>
 
-                  {/* Headline & Body */}
                   <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-editorial-serif text-[#20221F] leading-snug">
+                    <h3 className="text-xl font-bold font-display text-gray-900 leading-snug">
                       {step.headline}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#4F5A48] font-light leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed font-normal">
                       {step.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Bottom Meta */}
-                <div className="pt-4 border-t border-[rgba(32,34,31,0.10)] flex items-center justify-between text-[10px] font-mono text-[#4F5A48] uppercase tracking-wider">
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase tracking-wider">
                   <span>STEP {step.number}</span>
-                  <span className="text-[#20221F] font-semibold">{step.meta}</span>
+                  <span className="text-green-700 font-semibold">{step.meta}</span>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Direct Action Trigger */}
-        <div className="mt-12 p-8 border border-[rgba(32,34,31,0.15)] bg-[#EAE5DA] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+        {/* Quick Booking Prompt */}
+        <div className="mt-12 p-8 bg-white border border-gray-200 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-1 text-center sm:text-left">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#20221F] font-semibold block">
-              Ready to begin?
-            </span>
-            <p className="text-xs text-[#4F5A48] font-light">
+            <h4 className="text-base font-bold font-display text-gray-900">
+              Ready to schedule your session?
+            </h4>
+            <p className="text-xs text-gray-500 font-normal">
               Select your consultation time on Calendly to discuss your credit profile directly with Razila.
             </p>
           </div>
 
           <button
             onClick={() => initiateRedirect(consultationResource)}
-            data-cursor="view"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 bg-[#20221F] text-[#F5F2EA] font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#383d35] transition-colors rounded-none border border-[#20221F] shrink-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-6 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase transition-colors rounded-sm cursor-pointer shrink-0"
           >
-            <span>BOOK YOUR CREDIT CONSULTATION →</span>
-            <ArrowUpRight size={14} className="text-[#B9D65A]" />
+            <span>BOOK A CONSULTATION</span>
+            <ArrowUpRight size={14} className="text-green-200" />
           </button>
         </div>
       </div>

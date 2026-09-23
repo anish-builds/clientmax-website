@@ -1,44 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #F5F2EA;
-  --color-cream: #EAE5DA;
-  --color-charcoal: #20221F;
-  --color-olive: #4F5A48;
-  --color-lime-accent: #B9D65A;
-  --color-champagne: #B69A63;
-  --color-border-subtle: rgba(32, 34, 31, 0.10);
-  --color-border-medium: rgba(32, 34, 31, 0.20);
+  --color-brand-green: #15803D;
+  --color-brand-green-hover: #166534;
+  --color-brand-green-light: #DCFCE7;
+  --color-brand-green-subtle: #F0FDF4;
+  --color-brand-green-dark: #0D5C3A;
 
-  /* Backward compatibility tokens mapped to new light palette */
-  --color-obsidian: #20221F;
-  --color-stone-muted: #4F5A48;
-  --color-sage-muted: #4F5A48;
+  --color-dark: #111827;
+  --color-charcoal: #1F2937;
+  --color-slate: #374151;
+  --color-muted: #4B5563;
+  --color-subtle: #9CA3AF;
+  --color-border: #E5E7EB;
+  --color-border-subtle: rgba(17, 24, 39, 0.08);
 
-  --font-serif: 'DM Serif Display', Georgia, serif;
-  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-surface-white: #FFFFFF;
+  --color-surface-off: #F9FAFB;
+  --color-surface-muted: #F3F4F6;
+  --color-surface-dark: #111827;
+
+  /* Backward compatibility tokens mapped cleanly */
+  --color-ivory: #FFFFFF;
+  --color-cream: #F9FAFB;
+  --color-charcoal-old: #111827;
+  --color-olive: #4B5563;
+  --color-lime-accent: #15803D;
+
+  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* IBM Plex Mono SemiBold — editorial labels, eyebrows, metadata, section numbers */
+  --font-mono: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
 }
 
 :root {
-  --bg-primary: #F5F2EA;
-  --bg-secondary: #EAE5DA;
-  --text-primary: #20221F;
-  --text-secondary: #4F5A48;
-  --accent-lime: #B9D65A;
-  --accent-champagne: #B69A63;
-  --border-subtle: rgba(32, 34, 31, 0.10);
-  --border-dark: rgba(32, 34, 31, 0.20);
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-muted: #F3F4F6;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+  --brand-green: #15803D;
+  --brand-green-hover: #166534;
+  --brand-green-light: #DCFCE7;
+  --border-light: #E5E7EB;
+  --border-subtle: rgba(17, 24, 39, 0.08);
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* ─── IBM Plex Mono: Editorial Label System ──────────────────────────────────
+   All font-mono usages pick up SemiBold weight automatically.
+   Letter-spacing is intentionally restrained — editorial, not generic SaaS.
+   Tailwind's tracking-widest (0.1em) is overridden here to 0.06em.
+   Individual overrides can still use tracking-* utilities as needed.
+──────────────────────────────────────────────────────────────────────────── */
+.font-mono {
+  font-family: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
 html {
-  background-color: #F5F2EA;
-  color: #20221F;
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -46,54 +75,57 @@ html {
 }
 
 body {
-  background-color: #F5F2EA;
-  color: #20221F;
+  background-color: #FFFFFF;
+  color: #111827;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Custom Text Selection */
 ::selection {
-  background-color: #B9D65A;
-  color: #20221F;
+  background-color: #15803D;
+  color: #FFFFFF;
 }
 
 ::-moz-selection {
-  background-color: #B9D65A;
-  color: #20221F;
+  background-color: #15803D;
+  color: #FFFFFF;
 }
 
-/* Editorial Typography Helpers */
+/* Typography Helpers */
+.font-display {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
+}
+
 .font-editorial-serif {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  /* Mapped to clean Manrope for sleek modern editorial typography */
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
 }
 
 .font-editorial-sans {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Thin 1px Editorial Rules */
+/* Subtle Editorial Rules */
 .editorial-rule-h {
   height: 1px;
-  background-color: rgba(32, 34, 31, 0.10);
+  background-color: #E5E7EB;
   width: 100%;
 }
 
 .editorial-rule-v {
   width: 1px;
-  background-color: rgba(32, 34, 31, 0.10);
+  background-color: #E5E7EB;
   height: 100%;
-}
-
-.editorial-rule-charcoal {
-  background-color: rgba(32, 34, 31, 0.20);
 }
 
 /* Custom Focus Ring for Accessibility */
 :focus-visible {
-  outline: 2px solid #20221F;
+  outline: 2px solid #15803D;
   outline-offset: 2px;
 }
 
@@ -103,23 +135,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F2EA;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #EAE5DA;
-  border: 1px solid rgba(32, 34, 31, 0.10);
+  background: #E5E7EB;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4F5A48;
-}
-
-/* Custom Cursor default hide on non-fine pointers */
-@media (pointer: coarse) {
-  .custom-cursor {
-    display: none !important;
-  }
+  background: #9CA3AF;
 }
 
 /* Respect Reduced Motion */

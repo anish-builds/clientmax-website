@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRedirect } from '@/context/RedirectContext';
 import { getResource, ExternalResource } from '@/content/resources';
-import { ArrowRight, ArrowUpRight, RotateCcw } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, RotateCcw, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function StartJourneyPage() {
@@ -24,13 +24,13 @@ export default function StartJourneyPage() {
     {
       id: 'build',
       label: 'Build Positive Payment History',
-      subtext: 'I have limited or damaged credit and need low-risk building lines.',
+      subtext: 'I have limited or damaged credit and need low-risk building lines without debt traps.',
       defaultResource: 'creditBuilding',
     },
     {
       id: 'vehicle',
       label: 'Prepare for Vehicle Financing',
-      subtext: 'I plan to finance or lease a car and want prime interest rates.',
+      subtext: 'I plan to finance or lease a car and want prime interest rates without dealer markups.',
       defaultResource: 'vehicle',
     },
     {
@@ -42,7 +42,7 @@ export default function StartJourneyPage() {
     {
       id: 'advisory',
       label: 'Private 1-on-1 Consultation with Razila',
-      subtext: 'I need a personalized roadmap tailored to my specific financial goals.',
+      subtext: 'I need a personalized roadmap tailored to my specific financial timeline.',
       defaultResource: 'consultation',
     },
   ];
@@ -105,75 +105,73 @@ export default function StartJourneyPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-[#F5F2EA]">
+    <div className="pt-32 pb-24 bg-white">
       {/* Header */}
-      <section className="border-b border-[rgba(32,34,31,0.10)] pb-16">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="max-w-4xl space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 bg-[#20221F]" />
-              <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
+      <section className="border-b border-gray-100 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-green-600" />
+              <span className="text-xs font-mono tracking-widest text-green-700 uppercase font-bold">
                 STRATEGIC DIAGNOSTIC // ENTRY POINT SELECTOR
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-editorial-serif text-[#20221F] tracking-tight leading-[1.02]">
-              FIND YOUR
-              <br />
-              <span className="italic text-[#4F5A48]">STARTING POINT.</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display text-gray-950 tracking-tight leading-[1.04]">
+              Find Your Starting Point<span className="text-green-600">.</span>
             </h1>
 
-            <p className="text-base sm:text-xl text-[#4F5A48] font-light max-w-2xl leading-relaxed pt-2">
-              Answer 2 strategic questions. We will immediately match your profile with the appropriate CLIENTSMAX resource or advisory pathway.
+            <p className="text-lg sm:text-xl text-gray-600 font-normal leading-relaxed">
+              Answer 2 quick questions. We will immediately identify the appropriate CLIENTSMAX resource or advisory pathway for your goals.
             </p>
 
             {/* Progress indicator */}
             <div className="flex items-center gap-4 pt-4 text-xs font-mono">
               <div className="flex items-center gap-2">
                 <span
-                  className={`w-6 h-6 flex items-center justify-center border text-[11px] font-semibold ${
+                  className={`w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold ${
                     step >= 1
-                      ? 'border-[#20221F] text-[#20221F] bg-[#EAE5DA]'
-                      : 'border-[rgba(32,34,31,0.18)] text-[#4F5A48]'
+                      ? 'bg-green-700 text-white'
+                      : 'bg-gray-100 text-gray-500'
                   }`}
                 >
                   1
                 </span>
-                <span className={step >= 1 ? 'text-[#20221F] font-semibold' : 'text-[#4F5A48]'}>
+                <span className={step >= 1 ? 'text-gray-900 font-bold' : 'text-gray-500'}>
                   Milestone
                 </span>
               </div>
 
-              <div className="h-[1px] w-8 bg-[rgba(32,34,31,0.15)]" />
+              <div className="h-[1px] w-8 bg-gray-200" />
 
               <div className="flex items-center gap-2">
                 <span
-                  className={`w-6 h-6 flex items-center justify-center border text-[11px] font-semibold ${
+                  className={`w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold ${
                     step >= 2
-                      ? 'border-[#20221F] text-[#20221F] bg-[#EAE5DA]'
-                      : 'border-[rgba(32,34,31,0.18)] text-[#4F5A48]'
+                      ? 'bg-green-700 text-white'
+                      : 'bg-gray-100 text-gray-500'
                   }`}
                 >
                   2
                 </span>
-                <span className={step >= 2 ? 'text-[#20221F] font-semibold' : 'text-[#4F5A48]'}>
+                <span className={step >= 2 ? 'text-gray-900 font-bold' : 'text-gray-500'}>
                   Standing
                 </span>
               </div>
 
-              <div className="h-[1px] w-8 bg-[rgba(32,34,31,0.15)]" />
+              <div className="h-[1px] w-8 bg-gray-200" />
 
               <div className="flex items-center gap-2">
                 <span
-                  className={`w-6 h-6 flex items-center justify-center border text-[11px] font-semibold ${
+                  className={`w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold ${
                     step >= 3
-                      ? 'border-[#20221F] text-[#20221F] bg-[#EAE5DA]'
-                      : 'border-[rgba(32,34,31,0.18)] text-[#4F5A48]'
+                      ? 'bg-green-700 text-white'
+                      : 'bg-gray-100 text-gray-500'
                   }`}
                 >
                   3
                 </span>
-                <span className={step >= 3 ? 'text-[#20221F] font-semibold' : 'text-[#4F5A48]'}>
+                <span className={step >= 3 ? 'text-gray-900 font-bold' : 'text-gray-500'}>
                   Roadmap
                 </span>
               </div>
@@ -184,15 +182,15 @@ export default function StartJourneyPage() {
 
       {/* Step Content */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {/* STEP 1 */}
           {step === 1 && (
             <div className="space-y-8">
               <div className="space-y-2">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-[#20221F] font-semibold">
+                <span className="text-xs font-mono tracking-widest uppercase text-green-700 font-bold">
                   QUESTION 01 OF 02
                 </span>
-                <h2 className="text-3xl font-editorial-serif text-[#20221F]">
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-950">
                   What is your immediate primary financial goal?
                 </h2>
               </div>
@@ -202,19 +200,19 @@ export default function StartJourneyPage() {
                   <button
                     key={m.id}
                     onClick={() => handleMilestoneSelect(m.id, m.defaultResource)}
-                    className="w-full text-left p-6 sm:p-8 border border-[rgba(32,34,31,0.12)] bg-[#EAE5DA]/30 hover:bg-[#EAE5DA] hover:border-[#20221F]/30 transition-all duration-200 group flex items-start justify-between gap-4 shadow-sm"
+                    className="w-full text-left p-6 sm:p-7 border border-gray-200 bg-white hover:border-green-600 hover:bg-green-50/30 rounded-sm transition-all duration-200 group flex items-start justify-between gap-4 shadow-2xs hover:shadow-xs cursor-pointer"
                   >
-                    <div className="space-y-1.5">
-                      <h3 className="text-xl font-editorial-serif text-[#20221F] group-hover:text-[#4F5A48] transition-colors">
+                    <div className="space-y-1">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-gray-900 group-hover:text-green-800 transition-colors">
                         {m.label}
                       </h3>
-                      <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-gray-500 font-normal leading-relaxed">
                         {m.subtext}
                       </p>
                     </div>
                     <ArrowRight
                       size={18}
-                      className="text-[#4F5A48] group-hover:text-[#20221F] group-hover:translate-x-1 transition-all shrink-0 mt-1"
+                      className="text-gray-400 group-hover:text-green-700 group-hover:translate-x-1 transition-all shrink-0 mt-1"
                     />
                   </button>
                 ))}
@@ -226,11 +224,11 @@ export default function StartJourneyPage() {
           {step === 2 && (
             <div className="space-y-8">
               <div className="space-y-2">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-[#20221F] font-semibold">
+                <span className="text-xs font-mono tracking-widest uppercase text-green-700 font-bold">
                   QUESTION 02 OF 02
                 </span>
-                <h2 className="text-3xl font-editorial-serif text-[#20221F]">
-                  Where does your credit currently stand?
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-950">
+                  Where does your credit score currently stand?
                 </h2>
               </div>
 
@@ -239,19 +237,19 @@ export default function StartJourneyPage() {
                   <button
                     key={s.id}
                     onClick={() => handleStandingSelect(s.id)}
-                    className="w-full text-left p-6 sm:p-8 border border-[rgba(32,34,31,0.12)] bg-[#EAE5DA]/30 hover:bg-[#EAE5DA] hover:border-[#20221F]/30 transition-all duration-200 group flex items-start justify-between gap-4 shadow-sm"
+                    className="w-full text-left p-6 sm:p-7 border border-gray-200 bg-white hover:border-green-600 hover:bg-green-50/30 rounded-sm transition-all duration-200 group flex items-start justify-between gap-4 shadow-2xs hover:shadow-xs cursor-pointer"
                   >
-                    <div className="space-y-1.5">
-                      <h3 className="text-xl font-editorial-serif text-[#20221F] group-hover:text-[#4F5A48] transition-colors">
+                    <div className="space-y-1">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-gray-900 group-hover:text-green-800 transition-colors">
                         {s.label}
                       </h3>
-                      <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-gray-500 font-normal leading-relaxed">
                         {s.subtext}
                       </p>
                     </div>
                     <ArrowRight
                       size={18}
-                      className="text-[#4F5A48] group-hover:text-[#20221F] group-hover:translate-x-1 transition-all shrink-0 mt-1"
+                      className="text-gray-400 group-hover:text-green-700 group-hover:translate-x-1 transition-all shrink-0 mt-1"
                     />
                   </button>
                 ))}
@@ -259,7 +257,7 @@ export default function StartJourneyPage() {
 
               <button
                 onClick={() => setStep(1)}
-                className="text-xs font-mono text-[#4F5A48] hover:text-[#20221F] underline font-semibold"
+                className="text-xs font-mono text-gray-600 hover:text-green-700 font-bold underline cursor-pointer"
               >
                 ← Back to question 1
               </button>
@@ -270,77 +268,77 @@ export default function StartJourneyPage() {
           {step === 3 && recommendation && (
             <div className="space-y-8">
               <div className="space-y-2">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-[#20221F] font-semibold">
-                  DIAGNOSTIC COMPLETE / YOUR RECOMMENDED ENTRY POINT
+                <span className="text-xs font-mono tracking-widest uppercase text-green-700 font-bold">
+                  DIAGNOSTIC COMPLETE // RECOMMENDED PATHWAY
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-editorial-serif text-[#20221F]">
-                  Your Recommended Next Move
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-gray-950">
+                  Your Recommended Next Step
                 </h2>
               </div>
 
-              <div className="border border-[rgba(32,34,31,0.18)] bg-[#EAE5DA]/40 p-8 sm:p-12 space-y-8 relative shadow-sm">
-                <div className="flex items-center justify-between pb-6 border-b border-[rgba(32,34,31,0.10)]">
-                  <span className="text-xs font-mono text-[#20221F] uppercase tracking-widest font-bold border border-[rgba(32,34,31,0.18)] bg-[#F5F2EA] px-2.5 py-0.5">
+              <div className="border border-green-200 bg-green-50/40 p-8 sm:p-12 rounded-sm space-y-7 shadow-xs">
+                <div className="flex items-center justify-between pb-5 border-b border-green-200/80">
+                  <span className="text-xs font-mono text-green-800 uppercase tracking-widest font-bold bg-green-100 px-3 py-1 rounded-xs">
                     {recommendation.badge}
                   </span>
-                  <span className="text-[10px] font-mono text-[#4F5A48]">
+                  <span className="text-xs font-mono text-gray-500">
                     VERIFIED DESTINATION
                   </span>
                 </div>
 
-                <div className="space-y-3">
-                  <h3 className="text-3xl sm:text-4xl font-editorial-serif text-[#20221F]">
+                <div className="space-y-2">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-950">
                     {recommendation.name}
                   </h3>
-                  <p className="text-sm font-mono text-[#4F5A48] font-semibold">
+                  <p className="text-sm font-semibold text-green-800">
                     {recommendation.tagline}
                   </p>
-                  <p className="text-xs text-[#4F5A48] font-light leading-relaxed pt-2">
+                  <p className="text-sm text-gray-600 leading-relaxed font-normal pt-1">
                     {recommendation.description}
                   </p>
                 </div>
 
-                <div className="p-6 bg-[#F5F2EA] border border-[rgba(32,34,31,0.12)] space-y-2 shadow-sm">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#20221F] font-semibold block">
+                <div className="p-6 bg-white border border-green-200 rounded-sm space-y-1.5 shadow-2xs">
+                  <span className="text-xs font-mono uppercase tracking-wider text-green-800 font-bold block">
                     WHY THIS IS YOUR OPTIMAL ENTRY POINT:
                   </span>
-                  <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
                     {recommendation.whyChoose}
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                   <button
                     onClick={() => initiateRedirect(recommendation)}
-                    className="inline-flex items-center justify-center gap-2 py-4 px-8 bg-[#20221F] text-[#F5F2EA] font-mono text-xs font-semibold uppercase tracking-wider hover:bg-[#383d35] transition-colors rounded-none border border-[#20221F]"
+                    className="inline-flex items-center justify-center gap-2 py-4 px-8 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase rounded-sm transition-colors cursor-pointer shadow-xs"
                   >
                     <span>{recommendation.buttonText}</span>
-                    <ArrowUpRight size={14} className="text-[#B9D65A]" />
+                    <ArrowUpRight size={14} className="text-green-200" />
                   </button>
 
                   <button
                     onClick={resetDiagnostic}
-                    className="inline-flex items-center justify-center gap-2 py-4 px-6 border border-[rgba(32,34,31,0.25)] text-[#20221F] hover:bg-[#F5F2EA] font-mono text-xs uppercase tracking-wider transition-colors rounded-none"
+                    className="inline-flex items-center justify-center gap-2 py-4 px-6 border border-gray-300 text-gray-700 hover:bg-white font-mono text-xs uppercase tracking-wider rounded-sm transition-colors cursor-pointer"
                   >
                     <RotateCcw size={13} />
-                    <span>Retake Diagnostic</span>
+                    <span>Retake Assessment</span>
                   </button>
                 </div>
               </div>
 
-              {/* Alternative Consultation CTA */}
-              <div className="p-6 border border-[rgba(32,34,31,0.12)] bg-[#EAE5DA]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+              {/* Consultation Option */}
+              <div className="p-6 border border-gray-200 bg-gray-50 rounded-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
                 <div className="space-y-1">
-                  <span className="text-[11px] font-mono uppercase text-[#20221F] font-semibold">
-                    Prefer a human conversation?
+                  <span className="text-xs font-mono uppercase text-gray-900 font-bold">
+                    Prefer a direct human conversation?
                   </span>
-                  <p className="text-xs text-[#4F5A48] font-light">
-                    Schedule a private 1-on-1 strategy call with Razila directly on Calendly.
+                  <p className="text-xs text-gray-500 font-normal">
+                    Schedule a private 1-on-1 strategy session directly with Razila on Calendly.
                   </p>
                 </div>
                 <Link
                   href="/contact"
-                  className="text-xs font-mono text-[#20221F] font-semibold hover:underline whitespace-nowrap"
+                  className="text-xs font-bold text-green-700 hover:text-green-800 underline uppercase tracking-wider whitespace-nowrap"
                 >
                   Book Private Call →
                 </Link>

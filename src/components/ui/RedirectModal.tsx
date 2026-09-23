@@ -18,7 +18,7 @@ export function RedirectModal() {
     setProgress(0);
 
     const startTime = performance.now();
-    const duration = 650; // 650ms smooth editorial transition
+    const duration = 600; // 600ms smooth transition
 
     let animationFrameId: number;
 
@@ -60,66 +60,66 @@ export function RedirectModal() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#20221F]/50 backdrop-blur-[2px] p-4 sm:p-6"
+          transition={{ duration: 0.15 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-950/60 backdrop-blur-xs p-4 sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby="redirect-title"
         >
           <motion.div
-            initial={{ scale: 0.98, opacity: 0, y: 10 }}
+            initial={{ scale: 0.98, opacity: 0, y: 8 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.98, opacity: 0, y: 10 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
-            className="relative w-full max-w-lg border border-[rgba(32,34,31,0.15)] bg-[#F5F2EA] p-8 sm:p-10 shadow-xl"
+            exit={{ scale: 0.98, opacity: 0, y: 8 }}
+            transition={{ duration: 0.2 }}
+            className="relative w-full max-w-lg border border-gray-200 bg-white p-8 sm:p-10 rounded-sm shadow-2xl"
           >
-            {/* Close / Cancel Button */}
+            {/* Close Button */}
             <button
               onClick={cancelRedirect}
-              className="absolute top-6 right-6 text-[#4F5A48] hover:text-[#20221F] transition-colors p-1"
+              className="absolute top-5 right-5 text-gray-400 hover:text-gray-700 transition-colors p-1"
               aria-label="Cancel transition"
             >
-              <X size={18} />
+              <X size={20} />
             </button>
 
             {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="h-1.5 w-1.5 bg-[#B9D65A]" />
-              <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="h-2 w-2 rounded-full bg-green-600" />
+              <span className="text-[11px] font-mono tracking-widest text-green-700 uppercase font-bold">
                 CLIENTSMAX // EXTERNAL GATEWAY
               </span>
             </div>
 
             {/* Badge */}
-            <span className="inline-block text-[10px] uppercase font-mono tracking-widest text-[#20221F] border border-[rgba(32,34,31,0.18)] bg-[#EAE5DA] px-2.5 py-0.5 mb-3">
+            <span className="inline-block text-[10px] uppercase font-mono tracking-widest text-green-800 bg-green-100 px-2.5 py-0.5 rounded-xs font-bold mb-3">
               {activeResource.badge}
             </span>
 
             {/* Destination Title */}
             <h3
               id="redirect-title"
-              className="text-2xl sm:text-3xl font-normal text-[#20221F] mb-2 font-editorial-serif tracking-tight"
+              className="text-2xl sm:text-3xl font-bold text-gray-950 mb-2 font-display tracking-tight"
             >
               {activeResource.name}
             </h3>
 
             {/* Destination Subtext */}
-            <p className="text-sm text-[#4F5A48] mb-6 flex items-center gap-1.5">
+            <p className="text-sm text-gray-600 mb-5 flex items-center gap-1.5">
               <span>Directing to:</span>
-              <span className="text-[#20221F] font-medium underline underline-offset-4 decoration-[rgba(32,34,31,0.25)]">
+              <span className="text-green-700 font-semibold underline underline-offset-4">
                 {activeResource.destinationLabel}
               </span>
-              <ExternalLink size={13} className="text-[#4F5A48] ml-0.5" />
+              <ExternalLink size={13} className="text-green-700 ml-0.5" />
             </p>
 
-            <p className="text-xs text-[#4F5A48] mb-6 font-light leading-relaxed">
+            <p className="text-xs text-gray-500 mb-6 leading-relaxed">
               Taking you to your next verified step. This destination opens securely in a new browser tab.
             </p>
 
-            {/* Editorial Progress Bar */}
-            <div className="relative w-full h-[2px] bg-[#EAE5DA] mb-6 overflow-hidden">
+            {/* Progress Bar */}
+            <div className="relative w-full h-[3px] bg-gray-100 mb-6 overflow-hidden rounded-full">
               <motion.div
-                className="absolute top-0 left-0 h-full bg-[#B9D65A]"
+                className="absolute top-0 left-0 h-full bg-green-600 rounded-full"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: 'linear' }}
               />
@@ -129,17 +129,17 @@ export function RedirectModal() {
             <div className="flex items-center justify-between pt-2">
               <button
                 onClick={cancelRedirect}
-                className="text-xs font-mono tracking-wider uppercase text-[#4F5A48] hover:text-[#20221F] transition-colors"
+                className="text-xs font-mono tracking-wider uppercase text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
               >
                 Cancel
               </button>
 
               <button
                 onClick={handleInstantProceed}
-                className="flex items-center gap-1.5 text-xs font-mono font-semibold tracking-wider uppercase text-[#20221F] bg-[#B9D65A] px-5 py-2.5 hover:bg-[#a8c64d] border border-[rgba(32,34,31,0.15)] transition-colors rounded-none"
+                className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-white bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-sm transition-colors cursor-pointer shadow-xs"
               >
                 <span>Proceed Now</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} />
               </button>
             </div>
           </motion.div>

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRedirect } from '@/context/RedirectContext';
 import { getResource, SOCIAL_LINKS } from '@/content/resources';
-import { ArrowUpRight, CheckCircle2, Clock, ShieldAlert } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Clock, ShieldCheck, Mail, Send } from 'lucide-react';
 
 export default function ContactPage() {
   const { initiateRedirect } = useRedirect();
@@ -24,111 +24,109 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-[#F5F2EA]">
+    <div className="pt-32 pb-24 bg-white">
       {/* Header */}
-      <section className="border-b border-[rgba(32,34,31,0.10)] pb-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="max-w-4xl space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 bg-[#20221F]" />
-              <span className="text-[10px] font-mono tracking-[0.28em] text-[#4F5A48] uppercase">
+      <section className="border-b border-gray-100 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-green-600" />
+              <span className="text-xs font-mono tracking-widest text-green-700 uppercase font-bold">
                 COMMUNICATIONS // DIRECT ADVISORY
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-editorial-serif text-[#20221F] tracking-tight leading-[1.02]">
-              INITIATE
-              <br />
-              <span className="italic text-[#4F5A48]">THE CONVERSATION.</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display text-gray-950 tracking-tight leading-[1.04]">
+              Connect With CLIENTSMAX<span className="text-green-600">.</span>
             </h1>
 
-            <p className="text-base sm:text-xl text-[#4F5A48] font-light max-w-2xl leading-relaxed pt-2">
-              Schedule a dedicated 1-on-1 strategy session directly with Razila or send an inquiry regarding our educational programs and speaking engagements.
+            <p className="text-lg sm:text-xl text-gray-600 font-normal leading-relaxed">
+              Schedule a dedicated 1-on-1 strategy session directly with Razila on Calendly, or send an inquiry regarding workshops and consultations.
             </p>
           </div>
         </div>
       </section>
 
       {/* Main Grid: Calendly Direct Trigger + Inquiry Form */}
-      <section className="py-20 border-b border-[rgba(32,34,31,0.10)]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Column: Direct Consultation Hub */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="border border-[rgba(32,34,31,0.15)] bg-[#EAE5DA]/50 p-8 sm:p-10 space-y-6 shadow-sm">
-                <span className="text-[10px] font-mono tracking-widest text-[#20221F] uppercase block font-semibold">
-                  FASTEST PATHWAY
+      <section className="py-20 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+            {/* Left Column: Direct Consultation Booking Card */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="border border-green-200 bg-green-50/50 p-8 sm:p-9 rounded-sm space-y-6 shadow-xs">
+                <span className="text-xs font-mono tracking-widest text-green-800 uppercase block font-bold">
+                  FASTEST SCHEDULING PATHWAY
                 </span>
 
-                <h2 className="text-3xl font-editorial-serif text-[#20221F]">
-                  Book 1-on-1 Strategy Session
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-950">
+                  Book 1-on-1 Consultation
                 </h2>
 
-                <p className="text-xs text-[#4F5A48] font-light leading-relaxed">
-                  Reserve a confidential video consultation on Calendly. Review your 3-bureau report, identify immediate priorities, and get a concrete roadmap for your auto, mortgage, or business credit objectives.
+                <p className="text-sm text-gray-600 leading-relaxed font-normal">
+                  Reserve a private video consultation on Calendly directly with Razila. Review your 3-bureau report, identify immediate priorities, and get a concrete roadmap for your credit goals.
                 </p>
 
-                <div className="space-y-3 pt-2">
-                  <div className="flex items-center gap-2 text-xs text-[#20221F]">
-                    <CheckCircle2 size={14} className="text-[#20221F]" />
-                    <span>Direct advisory with Razila</span>
+                <div className="space-y-3 pt-1">
+                  <div className="flex items-center gap-2.5 text-sm text-gray-800">
+                    <CheckCircle2 size={16} className="text-green-700 shrink-0" />
+                    <span>Direct 1-on-1 session with Razila</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-[#20221F]">
-                    <CheckCircle2 size={14} className="text-[#20221F]" />
-                    <span>Comprehensive line-by-line report audit</span>
+                  <div className="flex items-center gap-2.5 text-sm text-gray-800">
+                    <CheckCircle2 size={16} className="text-green-700 shrink-0" />
+                    <span>Line-by-line 3-bureau report audit</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-[#20221F]">
-                    <CheckCircle2 size={14} className="text-[#20221F]" />
-                    <span>Actionable 90-day execution checklist</span>
+                  <div className="flex items-center gap-2.5 text-sm text-gray-800">
+                    <CheckCircle2 size={16} className="text-green-700 shrink-0" />
+                    <span>Prioritized sequencing checklist</span>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[rgba(32,34,31,0.10)]">
+                <div className="pt-2 border-t border-green-200/80">
                   <button
                     onClick={() => initiateRedirect(consultationResource)}
-                    className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-[#20221F] text-[#F5F2EA] font-mono text-xs font-semibold uppercase tracking-wider hover:bg-[#383d35] transition-colors rounded-none border border-[#20221F]"
+                    className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase transition-colors rounded-sm shadow-xs cursor-pointer"
                   >
-                    <span>BOOK YOUR CREDIT CONSULTATION →</span>
-                    <ArrowUpRight size={14} className="text-[#B9D65A]" />
+                    <span>OPEN CALENDLY SCHEDULER</span>
+                    <ArrowUpRight size={15} className="text-green-200" />
                   </button>
                 </div>
               </div>
 
               {/* Advisory Response Standard */}
-              <div className="p-6 border border-[rgba(32,34,31,0.12)] bg-[#EAE5DA]/30 space-y-3 text-xs text-[#4F5A48] shadow-sm">
-                <div className="flex items-center gap-2 text-[#20221F]">
-                  <Clock size={14} className="text-[#4F5A48]" />
-                  <span className="font-mono uppercase tracking-wider font-semibold">RESPONSE STANDARDS</span>
+              <div className="p-6 border border-gray-200 bg-gray-50 rounded-sm space-y-2 text-xs text-gray-600">
+                <div className="flex items-center gap-2 text-gray-900 font-bold font-mono uppercase tracking-wider">
+                  <Clock size={15} className="text-green-700" />
+                  <span>RESPONSE STANDARDS</span>
                 </div>
-                <p className="font-light leading-relaxed">
-                  General inquiries are reviewed Monday through Friday. Please allow 24 to 48 business hours for a detailed response from our advisory team.
+                <p className="leading-relaxed font-normal">
+                  General written inquiries are reviewed Monday through Friday. Please allow 24 to 48 business hours for a reply.
                 </p>
               </div>
             </div>
 
             {/* Right Column: General Inquiry Form */}
-            <div className="lg:col-span-7 border border-[rgba(32,34,31,0.15)] bg-[#F5F2EA] p-8 sm:p-12 shadow-sm">
+            <div className="lg:col-span-7 border border-gray-200 bg-white p-8 sm:p-10 rounded-sm shadow-xs">
               <div className="space-y-2 mb-8">
-                <span className="text-[10px] font-mono tracking-widest text-[#4F5A48] uppercase block font-semibold">
-                  WRITTEN INQUIRY
+                <span className="text-xs font-mono tracking-widest text-green-700 uppercase block font-bold">
+                  DIRECT MESSAGE
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-editorial-serif text-[#20221F]">
-                  Send a Direct Message
+                <h3 className="text-2xl sm:text-3xl font-bold font-display text-gray-950">
+                  Send A Message
                 </h3>
               </div>
 
               {formSubmitted ? (
-                <div className="p-8 border border-[#B9D65A] bg-[#B9D65A]/10 space-y-4 text-center">
-                  <CheckCircle2 size={32} className="text-[#20221F] mx-auto" />
-                  <h4 className="text-xl font-editorial-serif text-[#20221F]">
+                <div className="p-8 border border-green-200 bg-green-50 rounded-sm space-y-4 text-center">
+                  <CheckCircle2 size={36} className="text-green-700 mx-auto" />
+                  <h4 className="text-xl font-bold font-display text-gray-950">
                     Inquiry Received
                   </h4>
-                  <p className="text-xs text-[#4F5A48] max-w-md mx-auto font-light leading-relaxed">
-                    Thank you, {formData.name}. Your inquiry has been logged. Our advisory team will review your message and reply to {formData.email} within 24 to 48 business hours.
+                  <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
+                    Thank you, {formData.name}. Your message has been logged. Our advisory team will review your inquiry and reply to {formData.email} within 24 to 48 business hours.
                   </p>
                   <button
                     onClick={() => setFormSubmitted(false)}
-                    className="text-xs font-mono text-[#20221F] underline pt-2 block mx-auto font-semibold"
+                    className="text-xs font-mono text-green-700 underline font-bold pt-2 block mx-auto cursor-pointer"
                   >
                     Send another message
                   </button>
@@ -136,8 +134,8 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-[11px] font-mono uppercase tracking-wider text-[#4F5A48] block font-semibold">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-mono uppercase tracking-wider text-gray-700 block font-bold">
                         Full Name *
                       </label>
                       <input
@@ -145,13 +143,13 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Razila Vance"
-                        className="w-full bg-[#EAE5DA]/40 border border-[rgba(32,34,31,0.15)] px-4 py-3 text-sm text-[#20221F] focus:border-[#20221F] focus:outline-none transition-colors rounded-none"
+                        placeholder="Your full name"
+                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm text-gray-900 rounded-sm focus:border-green-600 focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-[11px] font-mono uppercase tracking-wider text-[#4F5A48] block font-semibold">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-mono uppercase tracking-wider text-gray-700 block font-bold">
                         Email Address *
                       </label>
                       <input
@@ -160,14 +158,14 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="you@domain.com"
-                        className="w-full bg-[#EAE5DA]/40 border border-[rgba(32,34,31,0.15)] px-4 py-3 text-sm text-[#20221F] focus:border-[#20221F] focus:outline-none transition-colors rounded-none"
+                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm text-gray-900 rounded-sm focus:border-green-600 focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-[11px] font-mono uppercase tracking-wider text-[#4F5A48] block font-semibold">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-mono uppercase tracking-wider text-gray-700 block font-bold">
                         Phone (Optional)
                       </label>
                       <input
@@ -175,54 +173,55 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+1 (555) 000-0000"
-                        className="w-full bg-[#EAE5DA]/40 border border-[rgba(32,34,31,0.15)] px-4 py-3 text-sm text-[#20221F] focus:border-[#20221F] focus:outline-none transition-colors rounded-none"
+                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm text-gray-900 rounded-sm focus:border-green-600 focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-[11px] font-mono uppercase tracking-wider text-[#4F5A48] block font-semibold">
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-mono uppercase tracking-wider text-gray-700 block font-bold">
                         Primary Focus
                       </label>
                       <select
                         value={formData.primaryGoal}
                         onChange={(e) => setFormData({ ...formData, primaryGoal: e.target.value })}
-                        className="w-full bg-[#EAE5DA]/40 border border-[rgba(32,34,31,0.15)] px-4 py-3 text-sm text-[#20221F] focus:border-[#20221F] focus:outline-none transition-colors rounded-none"
+                        className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm text-gray-900 rounded-sm focus:border-green-600 focus:bg-white focus:outline-none transition-colors"
                       >
                         <option value="understand">Audit 3-Bureau Report</option>
                         <option value="vehicle">Vehicle Loan Preparation</option>
                         <option value="mortgage">Mortgage Pre-Approval Planning</option>
-                        <option value="business">Business Credit Separation</option>
-                        <option value="speaking">Speaking / Education Workshop</option>
+                        <option value="building">Credit Building Lines</option>
+                        <option value="general">General Strategy Inquiry</option>
                       </select>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-[11px] font-mono uppercase tracking-wider text-[#4F5A48] block font-semibold">
-                      Message / Objective Context *
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono uppercase tracking-wider text-gray-700 block font-bold">
+                      Message / Context *
                     </label>
                     <textarea
                       required
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Briefly describe what you would like to accomplish..."
-                      className="w-full bg-[#EAE5DA]/40 border border-[rgba(32,34,31,0.15)] px-4 py-3 text-sm text-[#20221F] focus:border-[#20221F] focus:outline-none transition-colors resize-none rounded-none"
+                      placeholder="Briefly describe your credit situation or financial timeline..."
+                      className="w-full bg-gray-50 border border-gray-200 px-4 py-3 text-sm text-gray-900 rounded-sm focus:border-green-600 focus:bg-white focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
-                  <div className="pt-2">
+                  <div>
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#20221F] text-[#F5F2EA] font-mono text-xs font-semibold uppercase tracking-wider hover:bg-[#383d35] transition-colors rounded-none border border-[#20221F]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs uppercase tracking-wider transition-colors rounded-sm cursor-pointer shadow-xs"
                     >
-                      <span>Submit Inquiry</span>
+                      <Send size={14} />
+                      <span>Submit Message</span>
                     </button>
                   </div>
 
-                  <div className="pt-4 flex items-center gap-2 text-[10px] font-mono text-[#4F5A48]">
-                    <ShieldAlert size={13} className="text-[#20221F]" />
-                    <span>Your contact information is strictly confidential. Never sold or shared.</span>
+                  <div className="pt-2 flex items-center gap-2 text-xs text-gray-500">
+                    <ShieldCheck size={14} className="text-green-700 shrink-0" />
+                    <span>Your information is strictly confidential. Never shared or sold.</span>
                   </div>
                 </form>
               )}
@@ -233,8 +232,8 @@ export default function ContactPage() {
 
       {/* Social Direct Channels */}
       <section className="pt-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <span className="text-[10px] font-mono tracking-[0.25em] text-[#20221F] uppercase block mb-6 font-semibold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <span className="text-xs font-mono tracking-widest text-green-700 uppercase block mb-6 font-bold">
             DIRECT SOCIAL CHANNELS
           </span>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -244,17 +243,17 @@ export default function ContactPage() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-6 border border-[rgba(32,34,31,0.12)] bg-[#EAE5DA]/30 hover:bg-[#EAE5DA] hover:border-[#20221F]/30 transition-all flex items-center justify-between shadow-sm"
+                className="p-6 border border-gray-200 bg-gray-50 hover:bg-white hover:border-green-600 rounded-sm transition-all flex items-center justify-between shadow-2xs"
               >
                 <div>
-                  <span className="text-base font-editorial-serif text-[#20221F] block">
+                  <span className="text-base font-bold font-display text-gray-900 block">
                     {s.platform}
                   </span>
-                  <span className="text-xs font-mono text-[#4F5A48]">
+                  <span className="text-xs font-mono text-gray-500">
                     {s.handle}
                   </span>
                 </div>
-                <ArrowUpRight size={14} className="text-[#4F5A48]" />
+                <ArrowUpRight size={15} className="text-green-700" />
               </a>
             ))}
           </div>

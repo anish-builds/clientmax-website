@@ -3,8 +3,6 @@ import './globals.css';
 import { SITE_CONFIG } from '@/content/site';
 import { RedirectProvider } from '@/context/RedirectContext';
 import { RedirectModal } from '@/components/ui/RedirectModal';
-import { CustomCursor } from '@/components/ui/CustomCursor';
-import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -12,7 +10,7 @@ import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_CONFIG.name} — Credit Education & Financial Strategy`,
+    default: `${SITE_CONFIG.name} — Personal Credit Strategy & Financial Education`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
@@ -33,13 +31,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://clientsmax.com',
-    title: `${SITE_CONFIG.name} — Credit Education & Strategy`,
+    title: `${SITE_CONFIG.name} — Personal Credit Strategy & Financial Education`,
     description: SITE_CONFIG.description,
     siteName: SITE_CONFIG.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_CONFIG.name} — Credit Education & Strategy`,
+    title: `${SITE_CONFIG.name} — Personal Credit Strategy & Financial Education`,
     description: SITE_CONFIG.description,
   },
   robots: {
@@ -49,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#F5F2EA',
+  themeColor: '#FFFFFF',
   colorScheme: 'light',
 };
 
@@ -59,29 +57,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-[#F5F2EA] text-[#20221F] selection:bg-[#B9D65A] selection:text-[#20221F]">
-      <body className="min-h-screen flex flex-col font-editorial-sans antialiased bg-[#F5F2EA] text-[#20221F] relative">
+    <html lang="en" className="bg-white text-[#111827] selection:bg-[#15803D] selection:text-white">
+      <body className="min-h-screen flex flex-col font-sans antialiased bg-white text-[#111827] relative">
         <RedirectProvider>
           <SmoothScroll>
-            {/* 2.5% Grain Texture */}
-            <GrainOverlay />
-
-            {/* Desktop Spring Cursor */}
-            <CustomCursor />
-
-            {/* Outbound Gateway Modal */}
+            {/* Outbound Gateway Modal for Verified Partner Links */}
             <RedirectModal />
 
-            {/* Sticky Editorial Navigation */}
+            {/* Clean White Minimal Navigation */}
             <Navbar />
 
             {/* Main Content Area */}
             <main className="flex-1">{children}</main>
 
-            {/* Unobtrusive Mobile Floating Booking CTA */}
+            {/* Subtle Mobile Sticky Booking CTA */}
             <MobileStickyCTA />
 
-            {/* Monolithic Editorial Footer */}
+            {/* Minimal Dark Charcoal Footer */}
             <Footer />
           </SmoothScroll>
         </RedirectProvider>

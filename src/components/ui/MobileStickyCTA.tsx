@@ -35,31 +35,31 @@ export function MobileStickyCTA() {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
-          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#F5F2EA]/95 backdrop-blur-md border-t border-[rgba(32,34,31,0.15)] px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-lg"
+          transition={{ duration: 0.2 }}
+          className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-lg"
           role="region"
           aria-label="Quick consultation booking"
         >
           <div className="flex items-center justify-between gap-3">
             <div className="flex-1 min-w-0 pr-1">
               <div className="flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 bg-[#B9D65A] shrink-0" />
-                <span className="text-[9px] font-mono tracking-wider uppercase text-[#4F5A48] truncate">
-                  1-ON-1 ADVISORY // RAZILA
+                <span className="h-1.5 w-1.5 rounded-full bg-green-600 shrink-0" />
+                <span className="text-[10px] font-mono tracking-wider uppercase text-green-700 font-bold truncate">
+                  CLIENTSMAX • RAZILA
                 </span>
               </div>
-              <p className="text-xs font-editorial-serif text-[#20221F] truncate mt-0.5 font-medium">
-                Book Your Consultation
+              <p className="text-xs font-display text-gray-900 truncate mt-0.5 font-bold">
+                Book A Consultation
               </p>
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => initiateRedirect(consultationResource)}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#20221F] text-[#F5F2EA] font-mono text-[11px] uppercase tracking-wider font-semibold rounded-none border border-[#20221F] active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-green-700 hover:bg-green-800 text-white font-semibold text-[11px] uppercase tracking-wider rounded-sm shadow-xs"
               >
                 <span>BOOK NOW</span>
-                <ArrowUpRight size={13} className="text-[#B9D65A]" />
+                <ArrowUpRight size={13} className="text-green-200" />
               </button>
 
               <button
@@ -68,9 +68,9 @@ export function MobileStickyCTA() {
                   setIsVisible(false);
                 }}
                 aria-label="Dismiss quick booking bar"
-                className="p-1.5 text-[#4F5A48] hover:text-[#20221F] transition-colors"
+                className="p-1.5 text-gray-400 hover:text-gray-700 transition-colors"
               >
-                <X size={15} />
+                <X size={16} />
               </button>
             </div>
           </div>
