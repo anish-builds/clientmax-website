@@ -52,6 +52,27 @@
   box-sizing: border-box;
 }
 
+/* ─── Hide Default Cursor on Desktop (Use Custom Cursor Only) ─────────────── */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"],
+  .cursor-pointer,
+  .btn-primary,
+  .btn-secondary {
+    cursor: none !important;
+  }
+}
+
 /* ─── Uppercase Label System ────────────────────────────────────────────────
    Labels/eyebrow text: Inter (--font-body) with tight tracking.
    The .font-mono class keeps its visual character (uppercase + tracking)

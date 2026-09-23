@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-type CursorVariant = 'default' | 'pointer' | 'view' | 'explore' | 'go';
+type CursorVariant = 'default' | 'pointer' | 'text' | 'view' | 'explore' | 'go';
 
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,22 +11,19 @@ export function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
 
+  // Raw mouse coordinates for zero-latency arrow tip tracking
   const rawX = useMotionValue(-100);
   const rawY = useMotionValue(-100);
 
-  // Precision springs: dot follows with rapid response, ring lags organically
-  const dotSpring = { damping: 35, stiffness: 600, mass: 0.1 };
-  const ringSpring = { damping: 26, stiffness: 280, mass: 0.5 };
-
-  const dotX = useSpring(rawX, dotSpring);
-  const dotY = useSpring(rawY, dotSpring);
-  const ringX = useSpring(rawX, ringSpring);
-  const ringY = useSpring(rawY, ringSpring);
+  // Smooth trailing spring for subtle ambient glow / badge
+  const trailSpring = { damping: 24, stiffness: 280, mass: 0.5 };
+  const trailX = useSpring(rawX, trailSpring);
+  const trailY = useSpring(rawY, trailSpring);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Only activate for desktop fine-pointer devices and when user has not requested reduced motion
+    // Only activate on devices with fine pointer (mouse / trackpad) and standard motion preferences
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -72,8 +69,16 @@ export function CustomCursor() {
         }
       }
 
-      // Check for clickable/interactive elements
-      const isInteractive = target.closest('a, button, input, textarea, select, [role="button"], .card-hover, .btn-primary, .btn-secondary, label');
+      // Text input fields
+      if (target.closest('input, textarea, [contenteditable="true"]')) {
+        setVariant('text');
+        return;
+      }
+
+      // Interactive clickables
+      const isInteractive = target.closest(
+        'a, button, select, [role="button"], .card-hover, .btn-primary, .btn-secondary, label, summary, [tabindex]:not([tabindex="-1"])'
+      );
       if (isInteractive) {
         setVariant('pointer');
       } else {
@@ -115,81 +120,105 @@ export function CustomCursor() {
     }
   };
 
-  // Ring dimension calculations
-  const ringSize = hasLabel
-    ? 72
-    : isClicking
-    ? 24
-    : variant === 'pointer'
-    ? 44
-    : 32;
-
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden transition-opacity duration-300"
+      className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden transition-opacity duration-200"
       style={{ opacity: isVisible ? 1 : 0 }}
     >
-      {/* Outer Spring Follower Ring */}
-      <motion.div
-        style={{
-          x: ringX,
-          y: ringY,
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
-        animate={{
-          width: ringSize,
-          height: ringSize,
-          backgroundColor: hasLabel
-            ? '#15803D'
-            : variant === 'pointer'
-            ? 'rgba(21, 128, 61, 0.08)'
-            : isClicking
-            ? 'rgba(21, 128, 61, 0.16)'
-            : 'rgba(15, 23, 42, 0.03)',
-          borderColor: hasLabel
-            ? '#15803D'
-            : variant === 'pointer'
-            ? '#15803D'
-            : isClicking
-            ? '#0D5C3A'
-            : 'rgba(15, 23, 42, 0.22)',
-          borderWidth: hasLabel ? 0 : variant === 'pointer' ? 1.5 : 1,
-          scale: isClicking ? 0.9 : 1,
-        }}
-        transition={{ type: 'spring', damping: 24, stiffness: 320 }}
-        className="fixed top-0 left-0 rounded-full flex items-center justify-center select-none shadow-sm"
-      >
-        {hasLabel && (
-          <motion.span
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            className="tracking-widest font-mono text-[9px] font-semibold text-white uppercase text-center px-1"
-          >
-            {getCursorLabel()}
-          </motion.span>
-        )}
-      </motion.div>
-
-      {/* Center Precision Dot */}
-      {!hasLabel && (
+      {/* ── Optional Ambient Spring Follower (Subtle luxury halo on hover) ── */}
+      {variant === 'pointer' && (
         <motion.div
           style={{
-            x: dotX,
-            y: dotY,
+            x: trailX,
+            y: trailY,
             translateX: '-50%',
             translateY: '-50%',
           }}
-          animate={{
-            scale: isClicking ? 0.6 : variant === 'pointer' ? 1.4 : 1,
-            backgroundColor: variant === 'pointer' ? '#15803D' : '#0F172A',
-          }}
-          transition={{ type: 'spring', damping: 30, stiffness: 450 }}
-          className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none"
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: isClicking ? 0.8 : 1, opacity: 1 }}
+          exit={{ scale: 0.6, opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          className="fixed top-0 left-0 w-8 h-8 rounded-full bg-[#15803D]/10 border border-[#15803D]/30"
         />
       )}
+
+      {/* ── Special Editorial Floating Badge (e.g. VIEW / EXPLORE) ── */}
+      {hasLabel && (
+        <motion.div
+          style={{
+            x: trailX,
+            y: trailY,
+            translateX: 18,
+            translateY: 18,
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          className="fixed top-0 left-0 bg-[#15803D] text-white text-[10px] font-mono font-semibold tracking-widest px-2.5 py-1 rounded shadow-lg uppercase select-none"
+        >
+          {getCursorLabel()}
+        </motion.div>
+      )}
+
+      {/* ── Main Custom Arrow Pointer (Zero latency at exact cursor tip) ── */}
+      <motion.div
+        style={{
+          x: rawX,
+          y: rawY,
+        }}
+        animate={{
+          scale: isClicking ? 0.88 : variant === 'pointer' ? 1.08 : 1,
+          rotate: variant === 'pointer' ? -4 : 0,
+        }}
+        transition={{ type: 'spring', damping: 25, stiffness: 500 }}
+        className="fixed top-0 left-0 origin-top-left"
+      >
+        {variant === 'text' ? (
+          /* Custom Editorial I-Beam for text inputs */
+          <svg
+            width="18"
+            height="24"
+            viewBox="0 0 18 24"
+            fill="none"
+            className="-translate-x-1/2 -translate-y-1/2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
+          >
+            <path
+              d="M5 2H13M9 2V22M5 22H13"
+              stroke="#15803D"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+            />
+          </svg>
+        ) : (
+          /* Custom-Made Bespoke Arrow Cursor (Hotspot is exactly at 0, 0 top-left) */
+          <svg
+            width="26"
+            height="28"
+            viewBox="0 0 26 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="drop-shadow-[0_2px_4px_rgba(15,23,42,0.35)]"
+          >
+            {/* Outer crisp contrast border */}
+            <path
+              d="M2.5 1.5L2.5 21.2L7.6 16.4L11.8 24.8L15.2 23.1L11.0 14.7L17.2 14.7L2.5 1.5Z"
+              fill={variant === 'pointer' ? '#15803D' : '#0F172A'}
+              stroke="#FFFFFF"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+            {/* Subtle inner emerald jewel pip for brand signature */}
+            <circle
+              cx="6.5"
+              cy="8.5"
+              r="1.2"
+              fill={variant === 'pointer' ? '#FFFFFF' : '#15803D'}
+            />
+          </svg>
+        )}
+      </motion.div>
     </div>
   );
 }
