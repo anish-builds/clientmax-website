@@ -18,8 +18,12 @@ export function Hero() {
 
           {/* Left Column: Asymmetric Editorial Typography */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
-
-
+            <div className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-600 animate-pulse" />
+              <span className="text-xs font-mono tracking-widest text-green-700 uppercase font-semibold">
+                GET STARTED TODAY
+              </span>
+            </div>
 
             {/* Monumental Headline */}
             <div className="space-y-2">
@@ -34,7 +38,7 @@ export function Hero() {
 
             {/* Concise Human Supporting Copy */}
             <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed max-w-xl">
-              Credit is a structured system, not a personal barrier. Founded by Razila, CLIENTSMAX helps you understand, build, and strategically use your credit with genuine confidence free of automated gimmicks and false promises.
+              Move forward with clear, personalized credit strategy. Book a 1-on-1 consultation directly with Razila or find your optimal entry point.
             </p>
 
             {/* Dual CTAs */}
@@ -51,8 +55,8 @@ export function Hero() {
                 />
               </button>
 
-              <Link href="/services" className="btn-secondary">
-                <span>EXPLORE SERVICES</span>
+              <Link href="/start" className="btn-secondary">
+                <span>START YOUR JOURNEY</span>
                 <ArrowRight size={16} strokeWidth={1.5} className="text-slate-500" />
               </Link>
             </div>

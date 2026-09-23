@@ -5,10 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SITE_CONFIG } from '@/content/site';
-import { SOCIAL_LINKS, getResource } from '@/content/resources';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
-import { useRedirect } from '@/context/RedirectContext';
-import { fadeUpHeader, viewportOnce } from '@/lib/motion';
+import { SOCIAL_LINKS } from '@/content/resources';
 
 // Minimalist, high-fidelity brand SVGs at consistent 20px sizing with 1.5px stroke alignment
 function InstagramIcon({ size = 20 }: { size?: number }) {
@@ -46,8 +43,6 @@ function ThreadsIcon({ size = 20 }: { size?: number }) {
 }
 
 export function Footer() {
-  const { initiateRedirect } = useRedirect();
-  const consultationResource = getResource('consultation');
 
   const getPlatformIcon = (platform: string) => {
     switch (platform) {
@@ -69,57 +64,9 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         {/* ========================================================= */}
-        {/* 1. HERO CTA CONVERSION SUITE                              */}
+        {/* NAVIGATION, BRAND & COMMUNITY SUITE                       */}
         {/* ========================================================= */}
-        <motion.div
-          variants={fadeUpHeader}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="pt-20 sm:pt-28 pb-16 sm:pb-20 max-w-3xl space-y-7"
-        >
-          <div className="inline-flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs font-mono tracking-[0.14em] text-green-400 uppercase font-semibold">
-              GET STARTED TODAY
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-display text-white tracking-tight leading-[1.06]">
-            Ready to take control of your credit?
-          </h2>
-
-          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-            Move forward with clear, personalized credit strategy. Book a 1-on-1 consultation directly with Razila or find your optimal entry point.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-            <button
-              onClick={() => initiateRedirect(consultationResource)}
-              className="btn-primary"
-            >
-              <span>BOOK A CONSULTATION</span>
-              <ArrowUpRight
-                size={16}
-                strokeWidth={1.5}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-green-200"
-              />
-            </button>
-
-            <Link
-              href="/start"
-              className="btn-secondary !bg-transparent !text-slate-200 !border-slate-800 hover:!border-slate-600 hover:!text-white hover:!bg-slate-900/60"
-            >
-              <span>START YOUR JOURNEY</span>
-              <ArrowRight size={16} strokeWidth={1.5} className="text-slate-400" />
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* ========================================================= */}
-        {/* 3. NAVIGATION, BRAND & COMMUNITY SUITE                    */}
-        {/* ========================================================= */}
-        <div className="border-t border-gray-900 pt-16 pb-14">
+        <div className="pt-16 sm:pt-20 pb-14">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
             {/* Brand Column */}
             <div className="md:col-span-5 space-y-4">
