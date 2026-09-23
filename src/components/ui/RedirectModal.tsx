@@ -79,7 +79,7 @@ export function RedirectModal() {
               className="absolute top-5 right-5 text-gray-400 hover:text-gray-700 transition-colors p-1"
               aria-label="Cancel transition"
             >
-              <X size={20} />
+              <X size={20} strokeWidth={1.5} />
             </button>
 
             {/* Eyebrow */}
@@ -109,7 +109,7 @@ export function RedirectModal() {
               <span className="text-green-700 font-semibold underline underline-offset-4">
                 {activeResource.destinationLabel}
               </span>
-              <ExternalLink size={13} className="text-green-700 ml-0.5" />
+              <ExternalLink size={16} strokeWidth={1.5} className="text-green-700 ml-0.5" />
             </p>
 
             <p className="text-xs text-gray-500 mb-6 leading-relaxed">
@@ -136,10 +136,10 @@ export function RedirectModal() {
 
               <button
                 onClick={handleInstantProceed}
-                className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-white bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-sm transition-colors cursor-pointer shadow-xs"
+                className="btn-primary inline-flex items-center gap-2 text-xs py-2 px-5 cursor-pointer"
               >
                 <span>Proceed Now</span>
-                <ArrowRight size={13} />
+                <ArrowRight size={16} strokeWidth={1.5} />
               </button>
             </div>
           </motion.div>

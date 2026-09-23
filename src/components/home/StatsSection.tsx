@@ -2,187 +2,164 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
+const STATS_DATA = [
+  {
+    id: 'clients',
+    value: '5,000',
+    suffix: '+',
+    label: 'CLIENTS HELPED',
+    description: 'Individuals and families guided toward verified, long-term credit strength.',
+  },
+  {
+    id: 'founded',
+    value: '2021',
+    suffix: '',
+    label: 'CLIENTSMAX FOUNDED',
+    description: 'Established by Razila to deliver honest, structured credit strategy.',
+  },
+  {
+    id: 'advisory',
+    value: '1-on-1',
+    suffix: '',
+    label: 'FOUNDER ADVISORY',
+    description: 'Direct strategic consultation with Razila on every confidential case.',
+  },
+  {
+    id: 'bureau',
+    value: '3-Bureau',
+    suffix: '',
+    label: 'REPORT AUDITING',
+    description: 'Comprehensive line-by-line review across Experian, Equifax, and TransUnion.',
+  },
+];
+
+const TICKER_PHRASES = [
+  'EXPERIAN • EQUIFAX • TRANSUNION',
+  'FOUNDER-LED METHODOLOGY',
+  'ZERO AUTOMATED GIMMICKS',
+  '5,000+ CLIENTS GUIDED',
+  'FOUNDED IN 2021',
+  'DIRECT 1-ON-1 ADVISORY',
+];
+
+// Counter hook: animates a number from 0 → target once when visible
+function useCountUp(target: number, enabled: boolean): number {
+  const [count, setCount] = useState(0);
+  const didRun = useRef(false);
+
+  useEffect(() => {
+    if (!enabled || didRun.current) return;
+    didRun.current = true;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      setCount(target);
+      return;
+    }
+
+    const duration = 1600;
+    const start = performance.now();
+    const raf = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      setCount(Math.floor(ease * target));
+      if (t < 1) requestAnimationFrame(raf);
+      else setCount(target);
+    };
+    requestAnimationFrame(raf);
+  }, [enabled, target]);
+
+  return count;
+}
+
 export function StatsSection() {
-  const [clientsCount, setClientsCount] = useState(0);
-  const [foundedYear, setFoundedYear] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const hasAnimated = useRef(false);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          observer.disconnect();
-
-          if (prefersReducedMotion) {
-            setClientsCount(5000);
-            setFoundedYear(2021);
-            return;
-          }
-
-          // Animate counters once upward
-          const duration = 1600; // ms
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const ease = 1 - Math.pow(1 - progress, 3);
-
-            setClientsCount(Math.floor(ease * 5000));
-            setFoundedYear(Math.floor(ease * 2021));
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            } else {
-              setClientsCount(5000);
-              setFoundedYear(2021);
-            }
-          };
-
-          requestAnimationFrame(animate);
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.15 }
     );
-
-    observer.observe(el);
-
-    return () => {
-      observer.disconnect();
-    };
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
-  const marqueeItems = [
-    '5,000+ CLIENTS GUIDED',
-    'FOUNDED IN 2021',
-    'DIRECT 1-ON-1 ADVISORY',
-    '3-BUREAU STRATEGIC ANALYSIS',
-    'EXPERIAN • EQUIFAX • TRANSUNION',
-    'FOUNDER-LED METHODOLOGY',
-    'ZERO AUTOMATED GIMMICKS',
-  ];
+  const clientsCount = useCountUp(5000, inView);
+  const foundedYear = useCountUp(2021, inView);
 
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white border-b border-gray-100 py-16 sm:py-20 overflow-hidden"
+      className="relative bg-white border-b border-gray-100 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        {/* Editorial Milestone Strip */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14 border-b border-gray-100">
-          {/* Stat 1: 5,000+ */}
-          <div className="space-y-2">
-            <div className="flex items-baseline gap-1">
-              <span className="text-5xl sm:text-6xl font-extrabold font-display text-gray-950 tracking-tight">
-                {hasAnimated.current ? clientsCount.toLocaleString() : (clientsCount > 0 ? clientsCount.toLocaleString() : '5,000')}
-              </span>
-              <span className="text-4xl sm:text-5xl font-extrabold font-display text-green-600">+</span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs font-mono font-semibold text-green-700 tracking-wider uppercase block">
-                CLIENTS HELPED
-              </span>
-              <p className="text-sm text-gray-500 font-normal leading-relaxed">
-                Individuals and families guided toward verified, long-term credit strength.
-              </p>
-            </div>
-          </div>
+      {/* ── 4-Column Stat Highlights ─────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12 sm:pt-20 sm:pb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          {STATS_DATA.map((item) => {
+            const isClients = item.id === 'clients';
+            const isFounded = item.id === 'founded';
 
-          {/* Stat 2: 2021 */}
-          <div className="space-y-2">
-            <div className="flex items-baseline">
-              <span className="text-5xl sm:text-6xl font-extrabold font-display text-gray-950 tracking-tight">
-                {hasAnimated.current ? foundedYear : (foundedYear > 0 ? foundedYear : '2021')}
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs font-mono font-semibold text-green-700 tracking-wider uppercase block">
-                CLIENTSMAX FOUNDED
-              </span>
-              <p className="text-sm text-gray-500 font-normal leading-relaxed">
-                Established by Razila to deliver honest, structured credit strategy.
-              </p>
-            </div>
-          </div>
+            const displayValue = isClients
+              ? (inView ? clientsCount.toLocaleString() : '5,000')
+              : isFounded
+              ? (inView ? String(foundedYear) : '2021')
+              : item.value;
 
-          {/* Stat 3: 1-on-1 */}
-          <div className="space-y-2">
-            <div className="flex items-baseline">
-              <span className="text-5xl sm:text-6xl font-extrabold font-display text-gray-950 tracking-tight">
-                1-on-1
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs font-mono font-semibold text-green-700 tracking-wider uppercase block">
-                FOUNDER ADVISORY
-              </span>
-              <p className="text-sm text-gray-500 font-normal leading-relaxed">
-                Direct strategic consultation with Razila on every confidential case.
-              </p>
-            </div>
-          </div>
+            return (
+              <div key={item.id} className="flex flex-col">
+                {/* Large Bold Metric */}
+                <div className="flex items-baseline text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-gray-950 font-sans tracking-tight leading-none">
+                  <span>{displayValue}</span>
+                  {item.suffix && (
+                    <span className="text-green-600 font-extrabold ml-0.5">
+                      {item.suffix}
+                    </span>
+                  )}
+                </div>
 
-          {/* Stat 4: 3-Bureau */}
-          <div className="space-y-2">
-            <div className="flex items-baseline">
-              <span className="text-5xl sm:text-6xl font-extrabold font-display text-gray-950 tracking-tight">
-                3-Bureau
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs font-mono font-semibold text-green-700 tracking-wider uppercase block">
-                REPORT AUDITING
-              </span>
-              <p className="text-sm text-gray-500 font-normal leading-relaxed">
-                Comprehensive line-by-line review across Experian, Equifax, and TransUnion.
-              </p>
-            </div>
-          </div>
+                {/* Green Monospace Label */}
+                <div className="mt-3 mb-2 text-xs font-mono font-bold tracking-[0.14em] text-green-700 uppercase">
+                  {item.label}
+                </div>
+
+                {/* Editorial Subtext */}
+                <p className="text-sm text-gray-600 leading-relaxed font-sans">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Infinite Horizontal Editorial Marquee Ribbon */}
-      <div className="pt-8 overflow-hidden select-none bg-gray-50/70 border-b border-gray-100 py-3.5">
-        <div className="flex w-max space-x-8 animate-marquee">
-          {/* Double array for seamless infinite looping */}
-          {[...marqueeItems, ...marqueeItems].map((item, idx) => (
-            <div key={idx} className="flex items-center space-x-8 shrink-0">
-              <span className="text-xs font-mono font-semibold tracking-widest text-gray-700 uppercase">
-                {item}
+      {/* ── Bottom Marquee Ticker ───────────────────────────────────── */}
+      <div
+        aria-hidden="true"
+        className="relative w-full overflow-hidden border-y border-gray-200/80 bg-gray-50/70 py-4 sm:py-5 select-none"
+      >
+        {/* Left and Right Fade Masks */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 z-10 bg-gradient-to-r from-gray-50/90 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-gray-50/90 to-transparent" />
+
+        <div className="flex items-center animate-marquee will-change-transform">
+          {[...TICKER_PHRASES, ...TICKER_PHRASES, ...TICKER_PHRASES, ...TICKER_PHRASES].map((phrase, idx) => (
+            <div key={idx} className="flex items-center shrink-0">
+              <span className="text-xs sm:text-[13px] font-mono font-bold tracking-[0.16em] text-gray-800 uppercase whitespace-nowrap">
+                {phrase}
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-green-600 inline-block" />
+              <span className="inline-block w-2 h-2 rounded-full bg-green-600 shrink-0 mx-6 sm:mx-8" />
             </div>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 28s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-marquee {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   );
 }

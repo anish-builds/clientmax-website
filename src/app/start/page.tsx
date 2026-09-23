@@ -200,7 +200,7 @@ export default function StartJourneyPage() {
                   <button
                     key={m.id}
                     onClick={() => handleMilestoneSelect(m.id, m.defaultResource)}
-                    className="w-full text-left p-6 sm:p-7 border border-gray-200 bg-white hover:border-green-600 hover:bg-green-50/30 rounded-sm transition-all duration-200 group flex items-start justify-between gap-4 shadow-2xs hover:shadow-xs cursor-pointer"
+                    className="card-hover w-full text-left p-6 sm:p-7 border border-gray-200 bg-white hover:border-green-600 hover:bg-green-50/30 rounded-sm group flex items-start justify-between gap-4 shadow-2xs hover:shadow-xs cursor-pointer"
                   >
                     <div className="space-y-1">
                       <h3 className="text-lg sm:text-xl font-bold font-display text-gray-900 group-hover:text-green-800 transition-colors">
@@ -211,7 +211,8 @@ export default function StartJourneyPage() {
                       </p>
                     </div>
                     <ArrowRight
-                      size={18}
+                      size={20}
+                      strokeWidth={1.5}
                       className="text-gray-400 group-hover:text-green-700 group-hover:translate-x-1 transition-all shrink-0 mt-1"
                     />
                   </button>
@@ -237,7 +238,7 @@ export default function StartJourneyPage() {
                   <button
                     key={s.id}
                     onClick={() => handleStandingSelect(s.id)}
-                    className="w-full text-left p-6 sm:p-7 border border-gray-200 bg-white hover:border-green-600 hover:bg-green-50/30 rounded-sm transition-all duration-200 group flex items-start justify-between gap-4 shadow-2xs hover:shadow-xs cursor-pointer"
+                    className="card-hover w-full text-left p-6 sm:p-7 border border-gray-200 bg-white hover:border-green-600 hover:bg-green-50/30 rounded-sm group flex items-start justify-between gap-4 shadow-2xs hover:shadow-xs cursor-pointer"
                   >
                     <div className="space-y-1">
                       <h3 className="text-lg sm:text-xl font-bold font-display text-gray-900 group-hover:text-green-800 transition-colors">
@@ -248,7 +249,8 @@ export default function StartJourneyPage() {
                       </p>
                     </div>
                     <ArrowRight
-                      size={18}
+                      size={20}
+                      strokeWidth={1.5}
                       className="text-gray-400 group-hover:text-green-700 group-hover:translate-x-1 transition-all shrink-0 mt-1"
                     />
                   </button>
@@ -310,17 +312,17 @@ export default function StartJourneyPage() {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                   <button
                     onClick={() => initiateRedirect(recommendation)}
-                    className="inline-flex items-center justify-center gap-2 py-4 px-8 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase rounded-sm transition-colors cursor-pointer shadow-xs"
+                    className="btn-primary inline-flex items-center justify-center gap-2 py-3 px-8 text-xs tracking-wider cursor-pointer"
                   >
                     <span>{recommendation.buttonText}</span>
-                    <ArrowUpRight size={14} className="text-green-200" />
+                    <ArrowUpRight size={16} strokeWidth={1.5} className="text-green-200" />
                   </button>
 
                   <button
                     onClick={resetDiagnostic}
-                    className="inline-flex items-center justify-center gap-2 py-4 px-6 border border-gray-300 text-gray-700 hover:bg-white font-mono text-xs uppercase tracking-wider rounded-sm transition-colors cursor-pointer"
+                    className="btn-secondary inline-flex items-center justify-center gap-2 py-3 px-6 text-xs tracking-wider cursor-pointer"
                   >
-                    <RotateCcw size={13} />
+                    <RotateCcw size={16} strokeWidth={1.5} />
                     <span>Retake Assessment</span>
                   </button>
                 </div>

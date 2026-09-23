@@ -68,15 +68,15 @@ export default function ContactPage() {
 
                 <div className="space-y-3 pt-1">
                   <div className="flex items-center gap-2.5 text-sm text-gray-800">
-                    <CheckCircle2 size={16} className="text-green-700 shrink-0" />
+                    <CheckCircle2 size={16} strokeWidth={1.5} className="text-green-700 shrink-0" />
                     <span>Direct 1-on-1 session with Razila</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-sm text-gray-800">
-                    <CheckCircle2 size={16} className="text-green-700 shrink-0" />
+                    <CheckCircle2 size={16} strokeWidth={1.5} className="text-green-700 shrink-0" />
                     <span>Line-by-line 3-bureau report audit</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-sm text-gray-800">
-                    <CheckCircle2 size={16} className="text-green-700 shrink-0" />
+                    <CheckCircle2 size={16} strokeWidth={1.5} className="text-green-700 shrink-0" />
                     <span>Prioritized sequencing checklist</span>
                   </div>
                 </div>
@@ -84,10 +84,10 @@ export default function ContactPage() {
                 <div className="pt-2 border-t border-green-200/80">
                   <button
                     onClick={() => initiateRedirect(consultationResource)}
-                    className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase transition-colors rounded-sm shadow-xs cursor-pointer"
+                    className="btn-primary w-full inline-flex items-center justify-center gap-2 py-3 px-6 text-xs tracking-wider cursor-pointer"
                   >
                     <span>OPEN CALENDLY SCHEDULER</span>
-                    <ArrowUpRight size={15} className="text-green-200" />
+                    <ArrowUpRight size={16} strokeWidth={1.5} className="text-green-200" />
                   </button>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export default function ContactPage() {
               {/* Advisory Response Standard */}
               <div className="p-6 border border-gray-200 bg-gray-50 rounded-sm space-y-2 text-xs text-gray-600">
                 <div className="flex items-center gap-2 text-gray-900 font-bold font-mono uppercase tracking-wider">
-                  <Clock size={15} className="text-green-700" />
+                  <Clock size={16} strokeWidth={1.5} className="text-green-700" />
                   <span>RESPONSE STANDARDS</span>
                 </div>
                 <p className="leading-relaxed font-normal">
@@ -117,7 +117,7 @@ export default function ContactPage() {
 
               {formSubmitted ? (
                 <div className="p-8 border border-green-200 bg-green-50 rounded-sm space-y-4 text-center">
-                  <CheckCircle2 size={36} className="text-green-700 mx-auto" />
+                  <CheckCircle2 size={32} strokeWidth={1.5} className="text-green-700 mx-auto" />
                   <h4 className="text-xl font-bold font-display text-gray-950">
                     Inquiry Received
                   </h4>
@@ -212,15 +212,15 @@ export default function ContactPage() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs uppercase tracking-wider transition-colors rounded-sm cursor-pointer shadow-xs"
+                      className="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 text-xs tracking-wider cursor-pointer"
                     >
-                      <Send size={14} />
+                      <Send size={16} strokeWidth={1.5} />
                       <span>Submit Message</span>
                     </button>
                   </div>
 
                   <div className="pt-2 flex items-center gap-2 text-xs text-gray-500">
-                    <ShieldCheck size={14} className="text-green-700 shrink-0" />
+                    <ShieldCheck size={16} strokeWidth={1.5} className="text-green-700 shrink-0" />
                     <span>Your information is strictly confidential. Never shared or sold.</span>
                   </div>
                 </form>
@@ -243,7 +243,7 @@ export default function ContactPage() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-6 border border-gray-200 bg-gray-50 hover:bg-white hover:border-green-600 rounded-sm transition-all flex items-center justify-between shadow-2xs"
+                className="card-hover p-6 border border-gray-200 bg-gray-50 hover:bg-white hover:border-green-600 rounded-sm flex items-center justify-between shadow-2xs"
               >
                 <div>
                   <span className="text-base font-bold font-display text-gray-900 block">
@@ -253,7 +253,7 @@ export default function ContactPage() {
                     {s.handle}
                   </span>
                 </div>
-                <ArrowUpRight size={15} className="text-green-700" />
+                <ArrowUpRight size={16} strokeWidth={1.5} className="text-green-700" />
               </a>
             ))}
           </div>

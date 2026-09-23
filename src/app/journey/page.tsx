@@ -73,10 +73,10 @@ export default function JourneyPage() {
                   <div className="pt-4">
                     <button
                       onClick={() => handleToolRedirect(stage.recommendedToolKey)}
-                      className="inline-flex items-center gap-2 py-3 px-5 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs uppercase tracking-wider rounded-sm transition-colors cursor-pointer shadow-xs"
+                      className="btn-primary inline-flex items-center gap-2 py-2.5 px-5 text-xs tracking-wider cursor-pointer"
                     >
                       <span>{getResource(stage.recommendedToolKey)?.buttonText || 'ACTIVATE GATEWAY →'}</span>
-                      <ArrowUpRight size={13} className="text-green-200" />
+                      <ArrowUpRight size={16} strokeWidth={1.5} className="text-green-200" />
                     </button>
                   </div>
                 </div>
@@ -110,9 +110,9 @@ export default function JourneyPage() {
                       {stage.keyActions.map((action, i) => (
                         <div
                           key={i}
-                          className="flex items-start gap-3 p-4 border border-gray-200 bg-gray-50/60 rounded-sm"
+                          className="card-hover flex items-start gap-3 p-4 border border-gray-200 bg-gray-50/60 rounded-sm"
                         >
-                          <CheckCircle2 size={16} className="text-green-600 shrink-0 mt-0.5" />
+                          <CheckCircle2 size={16} strokeWidth={1.5} className="text-green-600 shrink-0 mt-0.5" />
                           <span className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                             {action}
                           </span>
@@ -123,7 +123,7 @@ export default function JourneyPage() {
 
                   {/* Pitfall Warning */}
                   <div className="flex items-start gap-3 p-4 border border-red-200 bg-red-50/50 rounded-sm text-xs sm:text-sm text-gray-700">
-                    <AlertOctagon size={16} className="text-red-600 shrink-0 mt-0.5" />
+                    <AlertOctagon size={16} strokeWidth={1.5} className="text-red-600 shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-red-900 font-bold font-mono uppercase tracking-wider text-[11px] block">
                         Common Mistake to Avoid:
@@ -149,7 +149,7 @@ export default function JourneyPage() {
             className="inline-flex items-center gap-2 text-sm font-semibold text-green-700 hover:text-green-800 underline underline-offset-4"
           >
             <span>Run the Interactive Entry Point Assessment</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={16} strokeWidth={1.5} />
           </Link>
         </div>
       </section>

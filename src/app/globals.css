@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -8,44 +8,37 @@
   --color-brand-green-subtle: #F0FDF4;
   --color-brand-green-dark: #0D5C3A;
 
-  --color-dark: #111827;
-  --color-charcoal: #1F2937;
-  --color-slate: #374151;
-  --color-muted: #4B5563;
-  --color-subtle: #9CA3AF;
-  --color-border: #E5E7EB;
-  --color-border-subtle: rgba(17, 24, 39, 0.08);
+  --color-dark: #0F172A;
+  --color-charcoal: #1E293B;
+  --color-slate: #334155;
+  --color-muted: #64748B;
+  --color-subtle: #94A3B8;
+  --color-border: #E2E8F0;
+  --color-border-subtle: rgba(15, 23, 42, 0.08);
 
   --color-surface-white: #FFFFFF;
-  --color-surface-off: #F9FAFB;
-  --color-surface-muted: #F3F4F6;
-  --color-surface-dark: #111827;
+  --color-surface-off: #F8FAFC;
+  --color-surface-muted: #F1F5F9;
+  --color-surface-dark: #0B0F17;
 
-  /* Backward compatibility tokens mapped cleanly */
-  --color-ivory: #FFFFFF;
-  --color-cream: #F9FAFB;
-  --color-charcoal-old: #111827;
-  --color-olive: #4B5563;
-  --color-lime-accent: #15803D;
-
-  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  /* IBM Plex Mono SemiBold — editorial labels, eyebrows, metadata, section numbers */
+  /* Typography Design Tokens */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
 }
 
 :root {
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F9FAFB;
-  --bg-muted: #F3F4F6;
-  --text-primary: #111827;
-  --text-secondary: #4B5563;
-  --text-muted: #6B7280;
+  --bg-secondary: #F8FAFC;
+  --bg-muted: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
   --brand-green: #15803D;
   --brand-green-hover: #166534;
   --brand-green-light: #DCFCE7;
-  --border-light: #E5E7EB;
-  --border-subtle: rgba(17, 24, 39, 0.08);
+  --border-light: #E2E8F0;
+  --border-subtle: rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -54,20 +47,19 @@
 
 /* ─── IBM Plex Mono: Editorial Label System ──────────────────────────────────
    All font-mono usages pick up SemiBold weight automatically.
-   Letter-spacing is intentionally restrained — editorial, not generic SaaS.
-   Tailwind's tracking-widest (0.1em) is overridden here to 0.06em.
-   Individual overrides can still use tracking-* utilities as needed.
+   Tracking is set to 0.14em for high-prestige financial label authority.
 ──────────────────────────────────────────────────────────────────────────── */
 .font-mono {
   font-family: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 html {
   background-color: #FFFFFF;
-  color: #111827;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -76,11 +68,12 @@ html {
 
 body {
   background-color: #FFFFFF;
-  color: #111827;
+  color: #0F172A;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.65;
 }
 
 /* Custom Text Selection */
@@ -96,30 +89,103 @@ body {
 
 /* Typography Helpers */
 .font-display {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: -0.025em;
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.02em;
 }
 
 .font-editorial-serif {
-  /* Mapped to clean Manrope for sleek modern editorial typography */
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: -0.025em;
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.02em;
 }
 
 .font-editorial-sans {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── Shared Card Elevation & Hover-Lift System ───────────────────────────────
+   Applied sitewide to all service tiles, outcome cards, and stat blocks.
+   Exact 200ms ease-out curve with subtle -4px vertical lift.
+──────────────────────────────────────────────────────────────────────────── */
+.card-hover {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 10px -4px rgba(15, 23, 42, 0.04);
+  border-color: #15803D;
+}
+
+/* ─── Shared Button System ───────────────────────────────────────────────────
+   Consistent primary CTA & secondary button aesthetics sitewide.
+──────────────────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background-color: #15803D;
+  color: #FFFFFF;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #166534;
+  transform: scale(1.015);
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.25);
+}
+
+.btn-secondary {
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: #0F172A;
+  color: #0F172A;
+  background-color: #F8FAFC;
+  transform: scale(1.015);
 }
 
 /* Subtle Editorial Rules */
 .editorial-rule-h {
   height: 1px;
-  background-color: #E5E7EB;
+  background-color: #E2E8F0;
   width: 100%;
 }
 
 .editorial-rule-v {
   width: 1px;
-  background-color: #E5E7EB;
+  background-color: #E2E8F0;
   height: 100%;
 }
 
@@ -139,22 +205,60 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E5E7EB;
+  background: #E2E8F0;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+  background: #94A3B8;
 }
 
-/* Respect Reduced Motion */
+/* ─── Premium Infinite Marquee ───────────────────────────────────────────────
+   Scrolls the ticker content from right to left. The JS component renders
+   items twice so the loop appears seamless.
+──────────────────────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Global Reduced Motion Accessibility Guard ─────────────────────────────
+   Disables/no-ops all translations and animation transitions globally.
+──────────────────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   ::before,
   ::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
+    transform: none !important;
     scroll-behavior: auto !important;
+  }
+
+  .card-hover:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none !important;
   }
 }

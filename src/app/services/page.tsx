@@ -141,7 +141,7 @@ export default function ServicesPage() {
                         {service.number}
                       </span>
                       <div className="p-2 rounded-full bg-green-50 text-green-700">
-                        <IconComponent size={20} />
+                        <IconComponent size={20} strokeWidth={1.5} />
                       </div>
                     </div>
 
@@ -156,10 +156,10 @@ export default function ServicesPage() {
                     <div className="pt-2">
                       <button
                         onClick={() => initiateRedirect(consultationResource)}
-                        className="inline-flex items-center gap-2 py-3 px-5 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase rounded-sm transition-colors cursor-pointer"
+                        className="btn-primary inline-flex items-center gap-2 py-2.5 px-5 text-xs tracking-wider cursor-pointer"
                       >
                         <span>BOOK CONSULTATION</span>
-                        <ArrowUpRight size={14} className="text-green-200" />
+                        <ArrowUpRight size={16} strokeWidth={1.5} className="text-green-200" />
                       </button>
                     </div>
                   </div>
@@ -178,9 +178,9 @@ export default function ServicesPage() {
                         {service.benefits.map((benefit, i) => (
                           <div
                             key={i}
-                            className="flex items-start gap-3 p-4 bg-gray-50 border border-gray-200/80 rounded-sm"
+                            className="card-hover flex items-start gap-3 p-4 bg-gray-50 border border-gray-200/80 rounded-sm"
                           >
-                            <CheckCircle2 size={16} className="text-green-600 shrink-0 mt-0.5" />
+                            <CheckCircle2 size={16} strokeWidth={1.5} className="text-green-600 shrink-0 mt-0.5" />
                             <span className="text-sm text-gray-700 font-normal">
                               {benefit}
                             </span>
@@ -214,10 +214,10 @@ export default function ServicesPage() {
 
             <button
               onClick={() => initiateRedirect(consultationResource)}
-              className="inline-flex items-center gap-2 py-4 px-8 bg-green-600 hover:bg-green-500 text-white font-semibold text-xs tracking-wider uppercase rounded-sm transition-colors cursor-pointer shrink-0"
+              className="btn-primary inline-flex items-center gap-2 py-3.5 px-8 text-xs tracking-wider cursor-pointer shrink-0"
             >
               <span>BOOK A CONSULTATION</span>
-              <ArrowUpRight size={15} />
+              <ArrowUpRight size={16} strokeWidth={1.5} />
             </button>
           </div>
         </div>

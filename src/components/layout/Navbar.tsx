@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_CONFIG } from '@/content/site';
@@ -40,16 +41,26 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
-          {/* Brand Wordmark */}
+          {/* Brand Wordmark & Official Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 focus:outline-none group"
+            className="flex items-center gap-3 focus:outline-none group"
           >
+            <div className="relative w-9 h-8 sm:w-10 sm:h-9 rounded-md overflow-hidden shrink-0 border border-gray-200/90 shadow-2xs group-hover:border-green-600 transition-colors">
+              <Image
+                src="/clientsmaxlogo.png"
+                alt="CLIENTSMAX Logo"
+                fill
+                priority
+                className="object-cover"
+                sizes="40px"
+              />
+            </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 font-display leading-none group-hover:text-green-700 transition-colors">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-gray-950 font-display leading-none group-hover:text-green-700 transition-colors">
                 {SITE_CONFIG.name}
               </span>
-              <span className="text-[10px] font-mono tracking-widest text-green-700 font-semibold mt-1">
+              <span className="text-[10px] font-mono tracking-[0.14em] text-green-700 font-semibold mt-1">
                 CREDIT STRATEGY
               </span>
             </div>
@@ -65,8 +76,8 @@ export function Navbar() {
                   href={item.href}
                   className={`text-sm tracking-wide font-medium transition-colors relative py-1 ${
                     isActive
-                      ? 'text-gray-900 font-semibold'
-                      : 'text-gray-600 hover:text-green-700'
+                      ? 'text-gray-950 font-semibold'
+                      : 'text-slate-600 hover:text-green-700'
                   }`}
                 >
                   {item.label}
@@ -85,12 +96,13 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => initiateRedirect(consultationResource)}
-              className="group inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 transition-colors rounded-sm shadow-xs cursor-pointer"
+              className="btn-primary !px-5 !py-2.5 text-xs"
             >
               <span>BOOK A CONSULTATION</span>
               <ArrowUpRight
-                size={14}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                size={16}
+                strokeWidth={1.5}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-green-200"
               />
             </button>
           </div>
@@ -100,9 +112,9 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
-            className="md:hidden p-2 text-gray-800 hover:text-green-700 focus:outline-none transition-colors"
+            className="md:hidden p-2 text-gray-900 hover:text-green-700 focus:outline-none transition-colors"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
           </button>
         </div>
       </header>
@@ -118,7 +130,7 @@ export function Navbar() {
             className="fixed inset-0 z-40 bg-white pt-24 px-6 pb-8 flex flex-col justify-between md:hidden overflow-y-auto"
           >
             <div className="space-y-6 pt-4">
-              <span className="text-[11px] font-mono tracking-widest text-green-700 uppercase font-semibold block">
+              <span className="text-xs font-mono tracking-[0.14em] text-green-700 uppercase font-semibold block">
                 NAVIGATION
               </span>
 
@@ -130,39 +142,31 @@ export function Navbar() {
                       key={item.href}
                       href={item.href}
                       className={`py-4 text-xl font-display font-medium flex items-center justify-between ${
-                        isActive ? 'text-green-700 font-bold' : 'text-gray-900'
+                        isActive ? 'text-green-700 font-bold' : 'text-gray-950'
                       }`}
                     >
                       <span>{item.label}</span>
-                      <span className="text-xs font-mono text-gray-400">→</span>
+                      <span className="text-xs font-mono text-slate-400">→</span>
                     </Link>
                   );
                 })}
               </nav>
             </div>
 
-            {/* Mobile Drawer Footer CTA */}
-            <div className="pt-6 space-y-3 border-t border-gray-100 mt-auto">
+            <div className="pt-6 border-t border-gray-100 space-y-4">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   initiateRedirect(consultationResource);
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs tracking-wider uppercase py-4 rounded-sm transition-colors"
+                className="btn-primary w-full"
               >
                 <span>BOOK A CONSULTATION</span>
-                <ArrowUpRight size={15} />
+                <ArrowUpRight size={16} strokeWidth={1.5} />
               </button>
 
-              <Link
-                href="/start"
-                className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-800 font-medium text-xs tracking-wider uppercase py-3.5 hover:bg-gray-50 transition-colors rounded-sm"
-              >
-                <span>START YOUR JOURNEY</span>
-              </Link>
-
-              <div className="text-[11px] text-gray-500 text-center pt-2">
-                CLIENTSMAX • Founded by Razila (2021)
+              <div className="text-center text-xs font-mono text-slate-500">
+                CLIENTSMAX • Established 2021
               </div>
             </div>
           </motion.div>

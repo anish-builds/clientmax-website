@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-white text-[#111827] selection:bg-[#15803D] selection:text-white">
+    <html lang="en" data-scroll-behavior="smooth" className="bg-white text-[#111827] selection:bg-[#15803D] selection:text-white">
       <body className="min-h-screen flex flex-col font-sans antialiased bg-white text-[#111827] relative">
         <RedirectProvider>
           <SmoothScroll>

@@ -1,18 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { SITE_CONFIG } from '@/content/site';
 import { SOCIAL_LINKS, getResource } from '@/content/resources';
-import { FAQS } from '@/content/faq';
-import { ArrowUpRight, ArrowRight, Plus, Minus } from 'lucide-react';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { useRedirect } from '@/context/RedirectContext';
+import { fadeUpHeader, viewportOnce } from '@/lib/motion';
 
-// Recognizable, minimal SVG icons
-function InstagramIcon({ size = 18 }: { size?: number }) {
+// Minimalist, high-fidelity brand SVGs at consistent 20px sizing with 1.5px stroke alignment
+function InstagramIcon({ size = 20 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -20,7 +21,7 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-function TikTokIcon({ size = 18 }: { size?: number }) {
+function TikTokIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.81 4.47 6.27 6.27 0 0 0 1.86-4.46V8.71a8.21 8.21 0 0 0 4.79 1.52V6.78a4.85 4.85 0 0 1-.87-.09z"/>
@@ -28,7 +29,7 @@ function TikTokIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-function FacebookIcon({ size = 18 }: { size?: number }) {
+function FacebookIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -36,7 +37,7 @@ function FacebookIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-function ThreadsIcon({ size = 18 }: { size?: number }) {
+function ThreadsIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.988h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
@@ -47,24 +48,14 @@ function ThreadsIcon({ size = 18 }: { size?: number }) {
 export function Footer() {
   const { initiateRedirect } = useRedirect();
   const consultationResource = getResource('consultation');
-  const [openFaqId, setOpenFaqId] = useState<string | null>(FAQS[0]?.id || null);
-
-  const toggleFaq = (id: string) => {
-    setOpenFaqId((prev) => (prev === id ? null : id));
-  };
 
   const getPlatformIcon = (platform: string) => {
     switch (platform) {
-      case 'Instagram':
-        return <InstagramIcon size={18} />;
-      case 'TikTok':
-        return <TikTokIcon size={18} />;
-      case 'Facebook':
-        return <FacebookIcon size={18} />;
-      case 'Threads':
-        return <ThreadsIcon size={18} />;
-      default:
-        return null;
+      case 'Instagram': return <InstagramIcon size={20} />;
+      case 'TikTok':    return <TikTokIcon size={20} />;
+      case 'Facebook':  return <FacebookIcon size={20} />;
+      case 'Threads':   return <ThreadsIcon size={20} />;
+      default:          return null;
     }
   };
 
@@ -80,10 +71,16 @@ export function Footer() {
         {/* ========================================================= */}
         {/* 1. HERO CTA CONVERSION SUITE                              */}
         {/* ========================================================= */}
-        <div className="pt-20 sm:pt-28 pb-16 sm:pb-20 max-w-3xl space-y-7">
+        <motion.div
+          variants={fadeUpHeader}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="pt-20 sm:pt-28 pb-16 sm:pb-20 max-w-3xl space-y-7"
+        >
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs font-mono tracking-widest text-green-400 uppercase font-semibold">
+            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-xs font-mono tracking-[0.14em] text-green-400 uppercase font-semibold">
               GET STARTED TODAY
             </span>
           </div>
@@ -92,117 +89,32 @@ export function Footer() {
             Ready to take control of your credit?
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-300 font-normal leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
             Move forward with clear, personalized credit strategy. Book a 1-on-1 consultation directly with Razila or find your optimal entry point.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
             <button
               onClick={() => initiateRedirect(consultationResource)}
-              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-green-700 hover:bg-green-600 text-white font-semibold text-xs tracking-wider uppercase transition-colors rounded-sm shadow-md cursor-pointer"
+              className="btn-primary"
             >
               <span>BOOK A CONSULTATION</span>
               <ArrowUpRight
-                size={15}
+                size={16}
+                strokeWidth={1.5}
                 className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-green-200"
               />
             </button>
 
             <Link
               href="/start"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-gray-800 text-gray-200 hover:text-white hover:border-gray-600 hover:bg-gray-900/60 font-medium text-xs tracking-wider uppercase transition-colors rounded-sm"
+              className="btn-secondary !bg-transparent !text-slate-200 !border-slate-800 hover:!border-slate-600 hover:!text-white hover:!bg-slate-900/60"
             >
               <span>START YOUR JOURNEY</span>
-              <ArrowRight size={14} className="text-gray-400" />
+              <ArrowRight size={16} strokeWidth={1.5} className="text-slate-400" />
             </Link>
           </div>
-        </div>
-
-        {/* ========================================================= */}
-        {/* 2. FREQUENTLY ASKED QUESTIONS (SEAMLESSLY INTEGRATED)     */}
-        {/* ========================================================= */}
-        <div className="border-t border-gray-900 pt-16 sm:pt-20 pb-16 sm:pb-20">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-12 sm:pb-14 border-b border-gray-900 gap-6">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-                <span className="text-xs font-mono tracking-widest text-green-400 uppercase font-semibold">
-                  CLARITY &amp; PERSPECTIVE
-                </span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-display text-white tracking-tight">
-                Frequently Asked Questions<span className="text-green-500">.</span>
-              </h3>
-            </div>
-
-            <p className="text-sm text-gray-400 max-w-md leading-relaxed font-normal">
-              Straightforward answers regarding our 1-on-1 consultations, advisory approach, realistic timelines, and ethical standards.
-            </p>
-          </div>
-
-          {/* Accordion List */}
-          <div className="divide-y divide-gray-900 border-b border-gray-900">
-            {FAQS.map((item, idx) => {
-              const isOpen = openFaqId === item.id;
-              return (
-                <div key={item.id} className="transition-colors">
-                  <button
-                    onClick={() => toggleFaq(item.id)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${item.id}`}
-                    className="w-full py-6 px-2 sm:px-4 flex items-center justify-between gap-6 text-left cursor-pointer group hover:bg-gray-900/30 transition-colors"
-                  >
-                    <div className="flex items-baseline gap-4 sm:gap-6 pr-4">
-                      <span
-                        className={`font-mono text-xs font-bold shrink-0 transition-colors ${
-                          isOpen ? 'text-green-400' : 'text-gray-500'
-                        }`}
-                      >
-                        0{idx + 1}
-                      </span>
-                      <h4
-                        className={`text-base sm:text-lg font-bold font-display transition-colors ${
-                          isOpen ? 'text-green-400' : 'text-gray-200 group-hover:text-white'
-                        }`}
-                      >
-                        {item.question}
-                      </h4>
-                    </div>
-
-                    <div
-                      className={`p-1.5 rounded-full border transition-colors shrink-0 ${
-                        isOpen
-                          ? 'border-green-500 text-green-400 bg-green-950/40'
-                          : 'border-gray-800 text-gray-500 bg-gray-900 group-hover:border-gray-700 group-hover:text-gray-300'
-                      }`}
-                    >
-                      {isOpen ? <Minus size={13} /> : <Plus size={13} />}
-                    </div>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`faq-answer-${item.id}`}
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pb-7 pt-1 px-2 sm:px-4 pl-8 sm:pl-12 max-w-4xl">
-                          <p className="text-sm text-gray-300 leading-relaxed font-normal">
-                            {item.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        </motion.div>
 
         {/* ========================================================= */}
         {/* 3. NAVIGATION, BRAND & COMMUNITY SUITE                    */}
@@ -211,23 +123,34 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
             {/* Brand Column */}
             <div className="md:col-span-5 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-green-500" />
-                <span className="text-xs font-mono tracking-widest text-green-400 uppercase font-semibold">
-                  CLIENTSMAX
-                </span>
+              <div className="flex items-center gap-3">
+                <div className="relative w-8 h-7 rounded-sm overflow-hidden shrink-0 border border-gray-800">
+                  <Image
+                    src="/clientsmaxlogo.png"
+                    alt="CLIENTSMAX Logo"
+                    fill
+                    className="object-cover"
+                    sizes="32px"
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                  <span className="text-xs font-mono tracking-[0.14em] text-green-400 uppercase font-semibold">
+                    CLIENTSMAX CONSULTING
+                  </span>
+                </div>
               </div>
               <p className="text-xl sm:text-2xl font-display font-medium text-white leading-snug">
                 Your Credit Is More Than A Number.
               </p>
-              <p className="text-sm text-gray-400 font-normal leading-relaxed max-w-md">
+              <p className="text-sm text-slate-400 font-normal leading-relaxed max-w-md">
                 CLIENTSMAX provides personal credit education and strategic 1-on-1 advisory. Founded in 2021 by Razila, helping individuals and families build lasting financial foundations.
               </p>
             </div>
 
             {/* Navigation Links */}
             <div className="md:col-span-3 space-y-4">
-              <span className="text-xs font-mono tracking-widest text-gray-400 uppercase block font-semibold">
+              <span className="text-xs font-mono tracking-[0.14em] text-slate-400 uppercase block font-semibold">
                 NAVIGATION
               </span>
               <ul className="space-y-2.5">
@@ -235,7 +158,7 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm text-gray-300 hover:text-green-400 transition-colors"
+                      className="text-sm text-slate-300 hover:text-green-400 transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -255,15 +178,15 @@ export function Footer() {
 
             {/* Follow the Journey / Verified Social Links */}
             <div className="md:col-span-4 space-y-4">
-              <span className="text-xs font-mono tracking-widest text-gray-400 uppercase block font-semibold">
+              <span className="text-xs font-mono tracking-[0.14em] text-slate-400 uppercase block font-semibold">
                 FOLLOW THE JOURNEY
               </span>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-slate-400 leading-relaxed">
                 Official community channels, founder commentary, and credit strategy updates.
               </p>
 
-              {/* Minimal SVG icon buttons */}
-              <div className="flex flex-wrap gap-2 pt-1">
+              {/* Minimal SVG icon buttons at exact 20px size */}
+              <div className="flex flex-wrap gap-2.5 pt-1">
                 {SOCIAL_LINKS.map((social) => (
                   <a
                     key={social.platform}
@@ -271,9 +194,9 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Follow CLIENTSMAX on ${social.platform}`}
-                    className="flex items-center gap-2 px-3 py-2 bg-gray-900 border border-gray-800 hover:border-green-600 hover:text-green-400 rounded-sm text-gray-300 transition-colors group"
+                    className="flex items-center gap-2 px-3 py-2 bg-slate-900 border border-slate-800 hover:border-green-600 hover:text-green-400 rounded-sm text-slate-300 transition-colors group"
                   >
-                    <span className="text-gray-400 group-hover:text-green-400 transition-colors">
+                    <span className="text-slate-400 group-hover:text-green-400 transition-colors">
                       {getPlatformIcon(social.platform)}
                     </span>
                     <span className="text-xs font-mono font-medium">{social.platform}</span>
@@ -281,7 +204,7 @@ export function Footer() {
                 ))}
               </div>
 
-              <div className="pt-2 text-xs text-gray-500 font-mono">
+              <div className="pt-2 text-xs text-slate-500 font-mono">
                 @clientsmax on all official platforms
               </div>
             </div>
@@ -291,9 +214,9 @@ export function Footer() {
         {/* ========================================================= */}
         {/* 4. LEGAL DISCLOSURE                                       */}
         {/* ========================================================= */}
-        <div className="py-7 border-t border-gray-900 text-xs text-gray-400 leading-relaxed font-light">
+        <div className="py-7 border-t border-gray-900 text-xs text-slate-400 leading-relaxed font-light">
           <p className="max-w-5xl">
-            <strong className="text-gray-300 font-semibold uppercase tracking-wider font-mono mr-2">DISCLOSURE:</strong>
+            <strong className="text-slate-300 font-semibold uppercase tracking-[0.14em] font-mono mr-2">DISCLOSURE:</strong>
             {SITE_CONFIG.disclaimer}
           </p>
         </div>
@@ -301,13 +224,13 @@ export function Footer() {
         {/* ========================================================= */}
         {/* 5. BOTTOM BAR                                             */}
         {/* ========================================================= */}
-        <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 pt-7 pb-8 border-t border-gray-900 gap-4 font-mono">
+        <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 pt-7 pb-8 border-t border-gray-900 gap-4 font-mono">
           <p>© {SITE_CONFIG.copyrightYear} CLIENTSMAX. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span>Founded in 2021</span>
             <span className="h-1 w-1 bg-green-500 rounded-full" />
             <span>5,000+ Clients Guided</span>
-            <span className="h-1 w-1 bg-gray-600 rounded-full" />
+            <span className="h-1 w-1 bg-slate-600 rounded-full" />
             <span>Personal Credit Strategy</span>
           </div>
         </div>

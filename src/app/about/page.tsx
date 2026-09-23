@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, ShieldCheck, Scale, Compass, Award, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ShieldCheck, Scale, Compass, Award } from 'lucide-react';
 import { SITE_CONFIG } from '@/content/site';
 import { useRedirect } from '@/context/RedirectContext';
 import { getResource } from '@/content/resources';
@@ -205,14 +205,14 @@ export default function AboutPage() {
               return (
                 <div
                   key={p.number}
-                  className="border border-gray-200 bg-white p-8 rounded-sm shadow-xs hover:border-green-600 transition-colors space-y-4"
+                  className="card-hover border border-gray-200 bg-white p-8 rounded-sm shadow-xs hover:border-green-600 transition-colors space-y-4"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-mono text-green-700 font-bold">
                       {p.number}
                     </span>
                     <div className="p-2 rounded-full bg-green-50 text-green-700">
-                      <IconComponent size={18} />
+                      <IconComponent size={20} strokeWidth={1.5} />
                     </div>
                   </div>
 
@@ -281,17 +281,17 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => initiateRedirect(consultationResource)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-green-700 hover:bg-green-800 text-white font-semibold text-xs uppercase tracking-wider rounded-sm transition-colors cursor-pointer shadow-xs"
+              className="btn-primary inline-flex items-center gap-2 px-8 py-3 text-xs tracking-wider cursor-pointer"
             >
               <span>BOOK A CONSULTATION</span>
-              <ArrowUpRight size={14} className="text-green-200" />
+              <ArrowUpRight size={16} strokeWidth={1.5} className="text-green-200" />
             </button>
             <Link
               href="/journey"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-gray-300 text-gray-800 hover:bg-gray-50 font-medium text-xs uppercase tracking-wider rounded-sm transition-colors"
+              className="btn-secondary inline-flex items-center gap-2 px-7 py-3 text-xs tracking-wider"
             >
               <span>EXPLORE THE JOURNEY</span>
-              <ArrowRight size={14} className="text-gray-500" />
+              <ArrowRight size={16} strokeWidth={1.5} className="text-gray-500" />
             </Link>
           </div>
         </div>
